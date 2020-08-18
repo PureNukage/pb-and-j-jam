@@ -1,10 +1,17 @@
 {
   "resources": [
+    {"id":{"name":"textbox","path":"objects/textbox/textbox.yy",},"order":6,},
     {"id":{"name":"tools","path":"scripts/tools/tools.yy",},"order":1,},
+    {"id":{"name":"s_idle","path":"sprites/s_idle/s_idle.yy",},"order":1,},
+    {"id":{"name":"fnt_speech","path":"fonts/fnt_speech/fnt_speech.yy",},"order":0,},
+    {"id":{"name":"s_block","path":"sprites/s_block/s_block.yy",},"order":2,},
+    {"id":{"name":"player","path":"objects/player/player.yy",},"order":4,},
     {"id":{"name":"definitions","path":"scripts/definitions/definitions.yy",},"order":0,},
     {"id":{"name":"time","path":"objects/time/time.yy",},"order":3,},
     {"id":{"name":"input","path":"objects/input/input.yy",},"order":2,},
     {"id":{"name":"app","path":"objects/app/app.yy",},"order":0,},
+    {"id":{"name":"collision","path":"objects/collision/collision.yy",},"order":5,},
+    {"id":{"name":"s_walk","path":"sprites/s_walk/s_walk.yy",},"order":0,},
     {"id":{"name":"debug","path":"objects/debug/debug.yy",},"order":1,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
