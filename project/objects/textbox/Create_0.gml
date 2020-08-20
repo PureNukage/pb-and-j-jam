@@ -1,2 +1,2 @@
-text = "this is a textbox"
+text = ""
 timer = -1

@@ -70,3 +70,22 @@ function draw_reset() {
 	draw_set_valign(fa_top)
 	
 }
+	
+function pathfind(Grid, path, startX, startY, goalX, goalY) {
+	
+	//	Can't pathfind here!
+	if !mp_grid_path(Grid, path, startX, startY, goalX, goalY, true) {
+		debug.log("I cannot pathfind here!")
+		
+		return false
+	}
+	//	We can pathfind here!
+	else {
+		debug.log("Path set!")
+		
+		pos = 0
+		
+		return true
+	}
+	
+}
