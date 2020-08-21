@@ -63,7 +63,7 @@ instance_create_layer(0,0,Layer,grid)
 		//	centerWindow = true
 		//}
 	
-		surface_resize(application_surface,new_width,new_height)
+		//surface_resize(application_surface,new_width,new_height)
 	}
 	
 	scale_canvas(1920,1080)
