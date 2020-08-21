@@ -72,7 +72,7 @@ instance_create_layer(0,0,Layer,grid)
 	anchorX = -1
 	anchorY = -1
 	
-	zoom_level = .7
+	zoom_level = 1
 	default_zoom_width = camera_get_view_width(camera)
 	default_zoom_height = camera_get_view_height(camera)
 
