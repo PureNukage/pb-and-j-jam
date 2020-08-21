@@ -45,5 +45,9 @@ y = clamp(y,0+edgeY,room_height-edgeY)
 #endregion
 
 if time.stream == 2 {
-	window_center()	
+	window_center()
+	if instance_exists(player) {
+		x = player.x
+		y = player.y
+	}
 }

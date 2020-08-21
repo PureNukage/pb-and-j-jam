@@ -41,5 +41,5 @@ if alive {
 }
 //	Dead
 else {
-	
+	sprite_index = s_skull
 }
