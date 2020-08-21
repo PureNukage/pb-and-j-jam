@@ -10,8 +10,8 @@ instance_create_layer(0,0,Layer,grid)
 
 #region Camera
 
-	width = 640
-	height = 360
+	width = 768
+	height = 432
 
 	#region Views
 
