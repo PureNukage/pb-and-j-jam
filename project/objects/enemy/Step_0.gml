@@ -1,3 +1,6 @@
+var startingX = x
+var startingY = y
+
 switch(state)
 {
 	#region Idle
@@ -13,6 +16,7 @@ switch(state)
 				X = clamp(X, 0, room_width)
 				Y = clamp(Y, 0, room_height)
 				
+				//	I can pathfind, lets start walking
 				if pathfind(grid.mpGrid, path, x,y, X,Y) {
 					goal.x = X
 					goal.y = Y
@@ -56,11 +60,13 @@ switch(state)
 	#endregion
 }
 
+//	Enemy has been forced
 if force > 0 {
 	applyForce(Direction, force)
 	force--
 }
 
+//	I got shot!
 if place_meeting(x,y,bullet) and !imDamaged {
 	doDamage(1)
 	var Bullet = instance_place(x,y,bullet)
@@ -71,3 +77,10 @@ if place_meeting(x,y,bullet) and !imDamaged {
 if imDamaged damaged()
 
 applyMovement()
+
+//	Choose sprite
+if x > startingX {
+	image_xscale = -1
+} else if x < startingX {
+	image_xscale = 1	
+}

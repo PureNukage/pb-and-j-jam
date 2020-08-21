@@ -3,7 +3,8 @@ yy = 0
 hspd = 0
 vspd = 0
 onGround = true
-z = 0
+z = y
+height = 0
 thrust = 0
 force = 0
 
@@ -35,10 +36,11 @@ function applyGravity() {
 	
 		thrust -= 1 
 		
-		z += thrust
+		z -= thrust
 		
-		if z <= 0 {
-			z = 0
+		if z >= y {
+			z = y
+			height = 0
 			onGround = true
 			thrust = 0
 		}
@@ -75,7 +77,7 @@ function doDamage(damage) {
 
 beingPickedUp = false
 finishedBeingPickedUp = false
-function pickedUp(height) {
+function pickedUp(Height) {
 	
 	if !beingPickedUp {
 		if finishedBeingPickedUp {
@@ -86,11 +88,12 @@ function pickedUp(height) {
 		}
 	} else {
 	
-		thrust += 1
-		z += thrust
+		thrust += 0.5
+		z -= thrust
 	
-		if z >= height {
-			if z > height z = height
+		if z <= y-Height {
+			if z > y-Height z = y-Height
+			height = Height
 			beingPickedUp = false
 			finishedBeingPickedUp = true
 		}

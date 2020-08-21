@@ -4,5 +4,3 @@ if spawn.x > -1 and spawn.y > -1 {
 }
 
 draw_self()
-
-//	Draw extended arm

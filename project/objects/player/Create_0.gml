@@ -106,6 +106,4 @@ function grab() {
 }
 	
 	
-	
-	
 placeSpawn(x,y)
