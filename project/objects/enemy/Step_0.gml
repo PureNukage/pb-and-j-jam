@@ -55,6 +55,13 @@ if alive {
 					var Speed = 4
 					var Direction_ = point_direction(x,y, xGoto,yGoto)
 					applyForce(Direction_, Speed)
+					
+					//	Choose sprite
+					if x < xGoto {
+						image_xscale = -1
+					} else if x > xGoto {
+						image_xscale = 1	
+					}
 				}
 			
 			break
@@ -84,11 +91,4 @@ else {
 	if animation_end {
 		image_index = image_number-1	
 	}
-}
-
-//	Choose sprite
-if x > startingX {
-	image_xscale = -1
-} else if x < startingX {
-	image_xscale = 1	
 }
