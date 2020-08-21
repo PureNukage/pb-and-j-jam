@@ -1,6 +1,6 @@
 {
   "resources": [
-    {"id":{"name":"s_box","path":"sprites/s_box/s_box.yy",},"order":7,},
+    {"id":{"name":"s_box","path":"sprites/s_box/s_box.yy",},"order":8,},
     {"id":{"name":"class_grab","path":"objects/class_grab/class_grab.yy",},"order":11,},
     {"id":{"name":"crate","path":"objects/crate/crate.yy",},"order":13,},
     {"id":{"name":"shader_flash","path":"shaders/shader_flash/shader_flash.yy",},"order":0,},
@@ -29,6 +29,7 @@
     {"id":{"name":"s_bullet","path":"sprites/s_bullet/s_bullet.yy",},"order":9,},
     {"id":{"name":"s_demon","path":"sprites/s_demon/s_demon.yy",},"order":12,},
     {"id":{"name":"s_player_front","path":"sprites/s_player_front/s_player_front.yy",},"order":4,},
+    {"id":{"name":"s_player_aim","path":"sprites/s_player_aim/s_player_aim.yy",},"order":7,},
     {"id":{"name":"s_enemy","path":"sprites/s_enemy/s_enemy.yy",},"order":13,},
     {"id":{"name":"app","path":"objects/app/app.yy",},"order":0,},
     {"id":{"name":"collision","path":"objects/collision/collision.yy",},"order":8,},

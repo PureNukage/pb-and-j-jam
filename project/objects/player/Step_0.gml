@@ -34,7 +34,7 @@ if alive {
 
 	aim()
 
-	grab()
+	//grab()
 
 	if input.keyPlaceSpawn placeSpawn(x,y)
 	

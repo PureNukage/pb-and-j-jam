@@ -27,15 +27,62 @@ function placeSpawn(x, y) {
 
 function aim() {
 	
+	sprite_index = s_player_aim
+	image_speed = 0
+	
 	var mouseDirection = point_direction(x,y, mouse_x,mouse_y)
 	
 	var Direction = round(mouseDirection/45) * 45 % 360
+	
+	debug.log(string(Direction))
 	
 	if input.mouseLeftPress {
 		var Bullet = instance_create_layer(x,y,"Instances",bullet)
 		Bullet.direction = Direction
 		Bullet.Force = 12
 		Bullet.image_angle = Direction
+	}
+	
+	////	Determine aiming sprite
+	//	Top-right
+	if Direction == 45 {
+		image_index = 3
+		image_xscale = 1
+	} 
+	//	Up
+	else if Direction == 90 {
+		image_index = 4
+		image_xscale = 1
+	}
+	//	Top-left
+	else if Direction == 135 {
+		image_index = 3
+		image_xscale = -1
+	}
+	//	Left
+	else if Direction == 180 {
+		image_index = 2
+		image_xscale = -1
+	}
+	//	Bottom-left
+	else if Direction == 225 {
+		image_index = 1
+		image_xscale = -1
+	}
+	//	Bottom
+	else if Direction == 270 {
+		image_index = 0
+		image_xscale = 1
+	}
+	//	Bottom-right
+	else if Direction == 315 {
+		image_index = 1
+		image_xscale = 1
+	}
+	//	Right
+	else if Direction == 0 {
+		image_index = 2
+		image_xscale = 1
 	}
 	
 }
