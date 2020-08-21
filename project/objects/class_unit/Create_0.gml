@@ -7,6 +7,7 @@ z = y
 height = 0
 thrust = 0
 force = 0
+alive = true
 
 path = path_add()
 pos = 0
@@ -65,7 +66,11 @@ function damaged() {
 	if damagedTimer > -1 damagedTimer--
 	
 	if damagedTimer == 0 {
-		imDamaged = false	
+		imDamaged = false
+		if object_index == enemy {
+			alive = false
+			sprite_index = s_enemy_death
+		}
 	}
 }
 

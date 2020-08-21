@@ -5,6 +5,7 @@
     {"id":{"name":"crate","path":"objects/crate/crate.yy",},"order":13,},
     {"id":{"name":"shader_flash","path":"shaders/shader_flash/shader_flash.yy",},"order":0,},
     {"id":{"name":"s_tileset","path":"sprites/s_tileset/s_tileset.yy",},"order":14,},
+    {"id":{"name":"s_enemy_death","path":"sprites/s_enemy_death/s_enemy_death.yy",},"order":17,},
     {"id":{"name":"textbox","path":"objects/textbox/textbox.yy",},"order":9,},
     {"id":{"name":"tools","path":"scripts/tools/tools.yy",},"order":1,},
     {"id":{"name":"barrel","path":"objects/barrel/barrel.yy",},"order":15,},
@@ -37,6 +38,7 @@
     {"id":{"name":"s_player_back","path":"sprites/s_player_back/s_player_back.yy",},"order":6,},
     {"id":{"name":"bullet","path":"objects/bullet/bullet.yy",},"order":12,},
     {"id":{"name":"debug","path":"objects/debug/debug.yy",},"order":1,},
+    {"id":{"name":"s_enemy_blood","path":"sprites/s_enemy_blood/s_enemy_blood.yy",},"order":18,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
   "Options": [

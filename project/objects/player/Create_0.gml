@@ -4,7 +4,6 @@ hspd = 0
 vspd = 0
 xx = 0
 yy = 0
-alive = true
 
 spawn = {
 	x: -1,
