@@ -10,8 +10,8 @@ instance_create_layer(0,0,Layer,grid)
 
 #region Camera
 
-	width = 1920
-	height = 1080
+	width = 640
+	height = 360
 
 	#region Views
 
@@ -66,7 +66,7 @@ instance_create_layer(0,0,Layer,grid)
 		surface_resize(application_surface,new_width,new_height)
 	}
 	
-	//scale_canvas(1280,720)
+	scale_canvas(1920,1080)
 	
 	dragging = false
 	anchorX = -1

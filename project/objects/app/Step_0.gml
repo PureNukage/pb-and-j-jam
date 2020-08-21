@@ -42,3 +42,7 @@ x = clamp(x,0+edgeX,room_width-edgeX)
 y = clamp(y,0+edgeY,room_height-edgeY)
 
 #endregion
+
+if time.stream == 2 {
+	window_center()	
+}
