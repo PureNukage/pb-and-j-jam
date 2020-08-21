@@ -36,8 +36,56 @@ function aim() {
 	
 	debug.log(string(Direction))
 	
-	if input.mouseLeftPress {
-		var Bullet = instance_create_layer(x,y,"Instances",bullet)
+	if input.mouseLeftPress { 
+		
+		#region Bullet should come out of the barrel
+			var bulletOffsetX = -1
+			var bulletOffsetY = -1
+			switch(Direction) {
+				//	Right
+				case 0:
+					bulletOffsetX = 29
+					bulletOffsetY = -23
+				break
+				//	Top-right
+				case 45:
+					bulletOffsetX = 22
+					bulletOffsetY = -40
+				break
+				//	Top
+				case 90:
+					bulletOffsetX = 3
+					bulletOffsetY = -43
+				break
+				//	Top-left
+				case 135:
+					bulletOffsetX = -22
+					bulletOffsetY = -40
+				break
+				//	Left
+				case 180:
+					bulletOffsetX = -29
+					bulletOffsetY = -23
+				break
+				//	Bottom-left
+				case 225:
+					bulletOffsetX = -15
+					bulletOffsetY = -12
+				break
+				//	Bottom
+				case 270:
+					bulletOffsetX = -2
+					bulletOffsetY = -10
+				break
+				//	Bottom-right
+				case 315:
+					bulletOffsetX = 15
+					bulletOffsetY = -12
+				break
+			}
+		#endregion
+		
+		var Bullet = instance_create_layer(x+bulletOffsetX,y+bulletOffsetY,"Instances",bullet)
 		Bullet.direction = Direction
 		Bullet.Force = 12
 		Bullet.image_angle = Direction
