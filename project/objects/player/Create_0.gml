@@ -48,7 +48,7 @@ function grab() {
 		if instance_position(mouse_x,mouse_y,all) {
 			var ID = instance_position(mouse_x,mouse_y,all)
 		
-			if ID.object_index == crate {
+			if object_get_parent(ID.object_index) == class_grab {
 				if input.mouseRightPress {
 					hand.ID = ID
 					ID.grabbed = true

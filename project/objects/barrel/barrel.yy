@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "s_box",
-    "path": "sprites/s_box/s_box.yy",
+    "name": "s_barrel",
+    "path": "sprites/s_barrel/s_barrel.yy",
   },
   "solid": false,
   "visible": true,
@@ -31,7 +31,7 @@
     "path": "folders/Game.yy",
   },
   "resourceVersion": "1.0",
-  "name": "crate",
+  "name": "barrel",
   "tags": [],
   "resourceType": "GMObject",
 }
