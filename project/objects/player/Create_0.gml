@@ -59,7 +59,10 @@ function grab() {
 	} 
 	//	Holding something
 	else {
-		if input.mouseRightRelease {
+		
+		var distanceFromPlayer = point_distance(x,y, hand.ID.x,hand.ID.y)
+		
+		if input.mouseRightRelease or distanceFromPlayer > maxDistanceFromPlayer {
 			
 			//	Apply force to object
 			if (hand.ID.x != mouse_x or hand.ID.y != mouse_y) {
