@@ -49,7 +49,7 @@ function grab() {
 			var ID = instance_position(mouse_x,mouse_y,all)
 		
 			if ID.object_index == crate {
-				if input.mouseLeftPress {
+				if input.mouseRightPress {
 					hand.ID = ID
 					ID.grabbed = true
 				}
@@ -59,7 +59,7 @@ function grab() {
 	} 
 	//	Holding something
 	else {
-		if input.mouseLeftRelease {
+		if input.mouseRightRelease {
 			
 			//	Apply force to object
 			if (hand.ID.x != mouse_x or hand.ID.y != mouse_y) {
