@@ -80,6 +80,13 @@ if alive {
 		var Bullet = instance_place(x,y,bullet)
 		Direction = point_direction(Bullet.x,Bullet.y, x,y)
 		setForce(Direction, 5)
+		
+		//	Change direction when shot
+		if Bullet.x > x {
+			image_xscale = -1
+		} else if Bullet.x < x {
+			image_xscale = 1	
+		}
 	}
 
 	if imDamaged damaged()
