@@ -5,6 +5,7 @@ if grabbed {
 	z = y - height
 } else {
 	if !onGround applyGravity()
+	else z = y - height
 	if force > 0 {
 		applyForce(Direction, force)
 		force--
