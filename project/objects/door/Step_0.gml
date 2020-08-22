@@ -15,3 +15,8 @@ if opening {
 		closing = false
 	}
 }
+
+if opened and place_meeting(x,y,player) and Room > -1 {
+	room_goto(Room)
+	app.newRoom = true
+}

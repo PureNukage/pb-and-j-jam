@@ -59,6 +59,7 @@
     {"id":{"name":"snd_itempickup","path":"sounds/snd_itempickup/snd_itempickup.yy",},"order":8,},
     {"id":{"name":"gui","path":"objects/gui/gui.yy",},"order":4,},
     {"id":{"name":"door","path":"objects/door/door.yy",},"order":18,},
+    {"id":{"name":"Room2","path":"rooms/Room2/Room2.yy",},"order":1,},
     {"id":{"name":"class_unit","path":"objects/class_unit/class_unit.yy",},"order":11,},
     {"id":{"name":"s_player_back","path":"sprites/s_player_back/s_player_back.yy",},"order":6,},
     {"id":{"name":"snd_menuitem_2","path":"sounds/snd_menuitem_2/snd_menuitem_2.yy",},"order":10,},
@@ -91,6 +92,7 @@
   },
   "RoomOrder": [
     {"name":"Room1","path":"rooms/Room1/Room1.yy",},
+    {"name":"Room2","path":"rooms/Room2/Room2.yy",},
   ],
   "Folders": [
     {"folderPath":"folders/Tile Sets.yy","order":0,"resourceVersion":"1.0","name":"Tile Sets","tags":[],"resourceType":"GMFolder",},

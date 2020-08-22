@@ -22,11 +22,17 @@ hp = 10
 function applyMovement() {
 	//	Apply movement
 	for(var W=0;W<abs(xx);W++) {
-		if !place_meeting(x + sign(xx), y, collision) x += sign(xx)
+		if !place_meeting(x + sign(xx), y, collision) {
+			if place_meeting(x + sign(xx), y, door) and !instance_place(x + sign(xx), y, door).opened {}
+			else x += sign(xx)
+		}
 	}
 
 	for(var H=0;H<abs(yy);H++) {
-		if !place_meeting(x, y + sign(yy), collision) y += sign(yy)	
+		if !place_meeting(x, y + sign(yy), collision) {
+			if place_meeting(x, y + sign(yy), door) and !instance_place(x, y + sign(yy), door).opened {}
+			else y += sign(yy) 
+		}
 	}
 
 	xx = 0

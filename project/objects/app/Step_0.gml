@@ -51,3 +51,13 @@ if time.stream == 2 {
 		y = player.y
 	}
 }
+
+if newRoom {
+	cameraSetup()	
+	newRoom = false
+	window_center()
+	if instance_exists(player) {
+		x = player.x
+		y = player.y
+	}
+}
