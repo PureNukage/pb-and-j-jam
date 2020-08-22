@@ -34,9 +34,17 @@ if alive {
 
 	aim()
 
-	//grab()
+	grab()
 
 	if input.keyPlaceSpawn placeSpawn(x,y)
+	
+	if hand.ID == -1 and !instance_position(mouse_x,mouse_y,all) {
+		cursor_sprite = s_cursor_aim	
+	} else if hand.ID > -1 {
+		cursor_sprite = s_cursor_hand_closed
+	} else if hand.ID == -1 and instance_position(mouse_x,mouse_y,all) and object_get_parent(instance_position(mouse_x,mouse_y,all).object_index) == class_grab {
+		cursor_sprite = s_cursor_hand_open
+	}
 	
 }
 //	Dead
