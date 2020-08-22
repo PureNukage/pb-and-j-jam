@@ -15,8 +15,8 @@ function changeRoom() {
 
 #region Camera
 
-	width = 768
-	height = 432
+	width = 640
+	height = 360
 
 	#region Views
 
@@ -73,12 +73,12 @@ function changeRoom() {
 	
 	scale_canvas(1920,1080)
 	
-	dragging = false
-	anchorX = -1
-	anchorY = -1
+	//dragging = false
+	//anchorX = -1
+	//anchorY = -1
 	
-	zoom_level = 1
-	default_zoom_width = camera_get_view_width(camera)
-	default_zoom_height = camera_get_view_height(camera)
+	//zoom_level = 1
+	//default_zoom_width = camera_get_view_width(camera)
+	//default_zoom_height = camera_get_view_height(camera)
 
 #endregion
