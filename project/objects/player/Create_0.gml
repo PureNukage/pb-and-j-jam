@@ -89,6 +89,8 @@ function aim() {
 		Bullet.direction = Direction
 		Bullet.Force = 12
 		Bullet.image_angle = Direction
+		
+		sound.playSound(choose(snd_gunfire_1, snd_gunfire_2, snd_gunfire_3))
 	}
 	
 	////	Determine aiming sprite

@@ -87,6 +87,8 @@ if alive {
 		} else if Bullet.x < x {
 			image_xscale = 1	
 		}
+		
+		sound.playSound(choose(snd_enemy_hit_1, snd_enemy_hit_2, snd_enemy_hit_3))
 	}
 
 	if imDamaged damaged()

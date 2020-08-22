@@ -44,6 +44,8 @@ function applyGravity() {
 			height = 0
 			onGround = true
 			thrust = 0
+			
+			sound.playSound(snd_item_drop)
 		}
 	
 }
@@ -91,6 +93,8 @@ function pickedUp(Height) {
 		} else {
 			onGround = false
 			beingPickedUp = true
+			
+			sound.playSound(snd_item_grab)
 		}
 	} else {
 	
