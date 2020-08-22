@@ -20,6 +20,7 @@ if alive {
 	
 		var Direction = point_direction(0,0,hspd,vspd)
 		var Force = 5
+		if hand.ID > -1 Force = 2
 		xx = lengthdir_x(Force, Direction)
 		yy = lengthdir_y(Force, Direction)
 	

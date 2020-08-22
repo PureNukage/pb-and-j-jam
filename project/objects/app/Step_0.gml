@@ -55,6 +55,9 @@ if time.stream == 2 {
 if newRoom {
 	cameraSetup()	
 	newRoom = false
+	
+	grid.buildGrid()
+	
 	window_center()
 	if instance_exists(player) {
 		x = player.x

@@ -1,6 +1,7 @@
 event_inherited()
 
 aggro = false
+turret = false
 pause = -1
 
 mask_index = s_demon

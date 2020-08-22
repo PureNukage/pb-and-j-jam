@@ -19,6 +19,7 @@
     {"id":{"name":"snd_gunfire_2","path":"sounds/snd_gunfire_2/snd_gunfire_2.yy",},"order":5,},
     {"id":{"name":"fnt_speech","path":"fonts/fnt_speech/fnt_speech.yy",},"order":0,},
     {"id":{"name":"snd_player_hit_3","path":"sounds/snd_player_hit_3/snd_player_hit_3.yy",},"order":16,},
+    {"id":{"name":"snd_door","path":"sounds/snd_door/snd_door.yy",},"order":19,},
     {"id":{"name":"s_player_side","path":"sprites/s_player_side/s_player_side.yy",},"order":5,},
     {"id":{"name":"snd_player_dies_1","path":"sounds/snd_player_dies_1/snd_player_dies_1.yy",},"order":12,},
     {"id":{"name":"s_player_walk_side","path":"sprites/s_player_walk_side/s_player_walk_side.yy",},"order":27,},

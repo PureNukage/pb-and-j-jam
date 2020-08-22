@@ -112,6 +112,8 @@ if alive {
 						Bullet.Force = 12
 						Bullet.image_angle = Bullet.direction
 						Bullet.killsEnemy = false
+						
+						sound.playSound(snd_enemy_fire)
 					}
 				}
 				

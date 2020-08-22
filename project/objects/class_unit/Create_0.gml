@@ -25,6 +25,8 @@ function applyMovement() {
 		if !place_meeting(x + sign(xx), y, collision) {
 			if place_meeting(x + sign(xx), y, door) and !instance_place(x + sign(xx), y, door).opened {}
 			else x += sign(xx)
+		} else if object_index == bullet {
+			x += sign(xx)	
 		}
 	}
 
@@ -32,6 +34,8 @@ function applyMovement() {
 		if !place_meeting(x, y + sign(yy), collision) {
 			if place_meeting(x, y + sign(yy), door) and !instance_place(x, y + sign(yy), door).opened {}
 			else y += sign(yy) 
+		} else if object_index == bullet {
+			y += sign(yy)	
 		}
 	}
 
