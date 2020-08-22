@@ -28,7 +28,13 @@ if alive {
 
 	applyMovement()
 	
+	//	Touching goo
 	if place_meeting(x,y,goo) {
+		die()		
+	}
+	
+	//	I got shot!
+	if place_meeting(x,y,bullet) and !instance_place(x,y,bullet).killsEnemy {
 		die()		
 	}
 

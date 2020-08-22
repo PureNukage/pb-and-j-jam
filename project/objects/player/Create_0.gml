@@ -34,8 +34,6 @@ function aim() {
 	
 	var Direction = round(mouseDirection/45) * 45 % 360
 	
-	debug.log(string(Direction))
-	
 	if input.mouseLeftPress { 
 		
 		#region Bullet should come out of the barrel

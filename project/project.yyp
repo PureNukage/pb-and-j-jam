@@ -54,6 +54,7 @@
     {"id":{"name":"collision","path":"objects/collision/collision.yy",},"order":9,},
     {"id":{"name":"s_walk","path":"sprites/s_walk/s_walk.yy",},"order":0,},
     {"id":{"name":"snd_gunfire_3","path":"sounds/snd_gunfire_3/snd_gunfire_3.yy",},"order":6,},
+    {"id":{"name":"s_player_walk_cycle","path":"sprites/s_player_walk_cycle/s_player_walk_cycle.yy",},"order":26,},
     {"id":{"name":"snd_player_hit_2","path":"sounds/snd_player_hit_2/snd_player_hit_2.yy",},"order":15,},
     {"id":{"name":"s_door_reversed","path":"sprites/s_door_reversed/s_door_reversed.yy",},"order":25,},
     {"id":{"name":"snd_itempickup","path":"sounds/snd_itempickup/snd_itempickup.yy",},"order":8,},

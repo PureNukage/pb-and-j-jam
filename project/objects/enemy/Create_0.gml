@@ -1,5 +1,10 @@
 event_inherited()
 
+aggro = false
+pause = -1
+
+mask_index = s_demon
+
 goal = {
 	x: -1,
 	y: -1,
