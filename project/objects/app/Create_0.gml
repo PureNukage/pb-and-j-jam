@@ -8,6 +8,10 @@ instance_create_layer(0,0,Layer,time)
 instance_create_layer(0,0,Layer,gui)
 instance_create_layer(0,0,Layer,grid)
 
+function changeRoom() {
+		
+}
+
 #region Camera
 
 	width = 768

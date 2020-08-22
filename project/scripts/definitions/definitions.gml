@@ -3,7 +3,7 @@
 
 #macro maxDistanceFromPlayer 200
 
-#macro animation_end (image_index > image_number - 1)
+#macro animation_end (image_index >= image_number - 1)
 
 enum state {
 	idle,
