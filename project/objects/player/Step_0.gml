@@ -51,3 +51,5 @@ if alive {
 else {
 	sprite_index = s_skull
 }
+
+depth = -y

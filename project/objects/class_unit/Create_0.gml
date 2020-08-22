@@ -70,6 +70,7 @@ function damaged() {
 		if object_index == enemy {
 			alive = false
 			sprite_index = s_enemy_death
+			bloodPuddleAngle = irandom_range(0,359)
 		}
 	}
 }

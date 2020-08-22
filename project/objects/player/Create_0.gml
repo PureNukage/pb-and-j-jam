@@ -199,5 +199,6 @@ function grab() {
 	
 }
 	
+mask_index = s_demon
 	
 placeSpawn(x,y)

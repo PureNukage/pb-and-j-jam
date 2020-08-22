@@ -5,7 +5,7 @@ if grabbed {
 	var Height = sprite_get_height(sprite_index)
 	var Thick = 4
 	
-	draw_rectangle(x-Width/2 - Thick,z-Height/2 - Thick, x-Width/2+Width + Thick,z-Height/2+Height + Thick,false)
+	draw_rectangle(x-Width/2 - Thick,z-Height - Thick, x-Width/2+Width + Thick,z-Height+Height + Thick,false)
 	
 	draw_reset()
 } 
@@ -23,7 +23,7 @@ else {
 		var Height = sprite_get_height(sprite_index)
 		var Thick = 4
 		
-		draw_rectangle(x-Width/2 - Thick,z-Height/2 - Thick, x-Width/2+Width + Thick,z-Height/2+Height + Thick,false)
+		draw_rectangle(x-Width/2 - Thick,z-Height - Thick, x-Width/2+Width + Thick,z-Height+Height + Thick,false)
 	
 		draw_reset()
 		
@@ -37,7 +37,7 @@ if !onGround {
 	draw_set_alpha(0.3)
 	var Width = sprite_get_width(sprite_index)
 	var Height = sprite_get_height(sprite_index)
-	draw_rectangle(x - Width/2, y + Height/2 - 16, x - Width/2 + Width,  y + Height/2, false)
+	draw_rectangle(x - Width/2, y - 16, x - Width/2 + Width,  y, false)
 	
 	draw_reset()
 }
