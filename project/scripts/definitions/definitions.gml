@@ -9,5 +9,5 @@ enum state {
 	idle,
 	walk,
 	aiming,
-	shoot
+	shoot,
 }
