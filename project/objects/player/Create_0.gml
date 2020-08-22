@@ -143,7 +143,7 @@ function grab() {
 			var ID = instance_position(mouse_x,mouse_y,all)
 		
 			if object_get_parent(ID.object_index) == class_grab {
-				if input.mouseRightPress {
+				if input.mouseLeftPress {
 					hand.ID = ID
 					ID.grabbed = true
 				}
@@ -156,25 +156,8 @@ function grab() {
 		
 		var distanceFromPlayer = point_distance(x,y, hand.ID.x,hand.ID.y)
 		
-		if input.mouseRightRelease or distanceFromPlayer > maxDistanceFromPlayer {
-			
-			//	Apply force to object
-			if (hand.ID.x != mouse_x or hand.ID.y != mouse_y) {
-				var Direction = point_direction(hand.ID.x,hand.ID.y, mouse_x,mouse_y)
-				var maxDistance = 500
-				var maxForce = 50
-				if point_distance(hand.ID.x,hand.ID.y, mouse_x,mouse_y) > maxDistance {
-					var Force = maxForce	
-				} else {
-					var Force = (point_distance(hand.ID.x,hand.ID.y, mouse_x,mouse_y) / maxDistance) * maxForce	
-				}
-				hand.ID.setForce(Direction, Force)
-			}
-			
-			hand.ID.beingPickedUp = false
-			hand.ID.finishedBeingPickedUp = false
-			hand.ID.grabbed = false
-			hand.ID = -1
+		if input.mouseLeftRelease or distanceFromPlayer > maxDistanceFromPlayer {		
+			drop()
 		}
 		
 		hand.ID.pickedUp(15)
@@ -197,6 +180,28 @@ function grab() {
 		}
 	}
 	
+}
+	
+function drop() {
+	if hand.ID > -1 {
+		//	Apply force to object
+		if (hand.ID.x != mouse_x or hand.ID.y != mouse_y) {
+			var Direction = point_direction(hand.ID.x,hand.ID.y, mouse_x,mouse_y)
+			var maxDistance = 500
+			var maxForce = 50
+			if point_distance(hand.ID.x,hand.ID.y, mouse_x,mouse_y) > maxDistance {
+				var Force = maxForce	
+			} else {
+				var Force = (point_distance(hand.ID.x,hand.ID.y, mouse_x,mouse_y) / maxDistance) * maxForce	
+			}
+			hand.ID.setForce(Direction, Force)
+		}
+			
+		hand.ID.beingPickedUp = false
+		hand.ID.finishedBeingPickedUp = false
+		hand.ID.grabbed = false
+		hand.ID = -1	
+	}
 }
 	
 mask_index = s_demon

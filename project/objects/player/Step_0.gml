@@ -6,14 +6,15 @@ if alive {
 	if (hspd != 0 or vspd != 0) {
 	
 		//	Sprite
+		image_speed = 1
 		if hand.ID == -1 {
 			if hspd != 0 {
-				sprite_index = s_player_side
+				sprite_index = s_player_walk_side
 				image_xscale = hspd
 			} else if vspd > 0 {
-				sprite_index = s_player_front	
+				sprite_index = s_player_walk_front
 			} else if vspd < 0 {
-				sprite_index = s_player_back	
+				sprite_index = s_player_walk_back
 			}
 		}
 	
@@ -23,7 +24,9 @@ if alive {
 		yy = lengthdir_y(Force, Direction)
 	
 	} else {
-	
+		if sprite_index == s_player_aim sprite_index = s_player_walk_front
+		image_speed = 0
+		image_index = 0
 	}
 
 	applyMovement()
@@ -38,9 +41,14 @@ if alive {
 		die()		
 	}
 
-	aim()
+	if input.mouseRight {
+		if hand.ID > -1 {
+			drop()	
+		}
+		aim()	
+	}
 
-	grab()
+	if sprite_index != s_player_aim grab()
 
 	if input.keyPlaceSpawn placeSpawn(x,y)
 	
