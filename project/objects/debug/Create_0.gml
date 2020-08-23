@@ -1,5 +1,7 @@
 on = false
 
+//depth = -50000000
+
 function log(String) {
 	
 	var Time = "[" + string(time.stream) + "] "

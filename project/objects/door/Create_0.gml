@@ -9,7 +9,7 @@ function open() {
 	image_speed = 1
 	opening = true
 	
-	sound.playSound(snd_door)
+	if room != Room3 sound.playSound(snd_door)
 }
 
 function close() {

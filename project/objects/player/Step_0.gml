@@ -38,9 +38,11 @@ if alive {
 	}
 	
 	//	I got shot!
+	mask_index = sprite_index
 	if place_meeting(x,y,bullet) and !instance_place(x,y,bullet).killsEnemy {
 		die()		
 	}
+	mask_index = s_demon
 
 	if input.mouseRight {
 		if hand.ID > -1 {

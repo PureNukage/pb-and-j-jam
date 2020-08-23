@@ -85,9 +85,13 @@ function damaged() {
 			bloodPuddleAngle = irandom_range(-15,15)
 		}
 		
-		if object_index == crate { 
+		if object_index == crate {
+			if player.hand.ID == id {
+				player.drop()	
+			}
+			
+			if ammoCrate instance_create_layer(x,y-16,"Instances",ammunition)
 			instance_destroy()
-			instance_create_layer(x,y-16,"Instances",ammunition)
 		}
 	}
 }

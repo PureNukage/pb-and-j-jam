@@ -1,16 +1,13 @@
 {
   "spriteId": {
-    "name": "s_box",
-    "path": "sprites/s_box/s_box.yy",
+    "name": "s_block",
+    "path": "sprites/s_block/s_block.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "class_grab",
-    "path": "objects/class_grab/class_grab.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -23,10 +20,7 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"crate","path":"objects/crate/crate.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"crate","path":"objects/crate/crate.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
@@ -34,7 +28,7 @@
     "path": "folders/Game.yy",
   },
   "resourceVersion": "1.0",
-  "name": "crate",
+  "name": "enemyZone",
   "tags": [],
   "resourceType": "GMObject",
 }

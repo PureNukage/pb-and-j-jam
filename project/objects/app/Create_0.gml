@@ -25,7 +25,7 @@ function scale_canvas(new_width, new_height) {
 	//	centerWindow = true
 	//}
 	
-	surface_resize(application_surface,new_width,new_height)
+	//surface_resize(application_surface,new_width,new_height)
 }
 	
 function cameraSetup() {

@@ -10,7 +10,8 @@ if place_meeting(x+1,y+1,collision) or place_meeting(x-1,y-1,collision) {
 }
 
 if place_meeting(x,y,crate) {
-	instance_destroy()	
+	var Crate = instance_place(x,y,crate)
+	if Crate.metalCrate instance_destroy()
 }
 
 depth = -y

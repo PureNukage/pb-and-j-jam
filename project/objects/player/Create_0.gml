@@ -1,4 +1,6 @@
-event_inherited()
+event_inherited() 
+
+if !instance_exists(app) instance_create_layer(0,0,"Instances",app)
 
 hspd = 0
 vspd = 0
