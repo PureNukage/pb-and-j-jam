@@ -41,6 +41,7 @@
     {"id":{"name":"button","path":"objects/button/button.yy",},"order":17,},
     {"id":{"name":"input","path":"objects/input/input.yy",},"order":2,},
     {"id":{"name":"s_player_walk_back","path":"sprites/s_player_walk_back/s_player_walk_back.yy",},"order":28,},
+    {"id":{"name":"snd_music","path":"sounds/snd_music/snd_music.yy",},"order":20,},
     {"id":{"name":"s_debug","path":"sprites/s_debug/s_debug.yy",},"order":3,},
     {"id":{"name":"s_goospawn","path":"sprites/s_goospawn/s_goospawn.yy",},"order":16,},
     {"id":{"name":"s_bullet","path":"sprites/s_bullet/s_bullet.yy",},"order":10,},
