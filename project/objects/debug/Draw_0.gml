@@ -1,6 +1,6 @@
 if on {
 	
-	//mp_grid_draw(grid.mpGrid)
+	mp_grid_draw(grid.mpGrid)
 	
 	if instance_exists(class_grab) with class_grab {
 		draw_set_color(c_red)

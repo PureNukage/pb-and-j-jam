@@ -2,6 +2,8 @@ creator = ""
 version = ""
 
 newRoom = false
+previousRoom = -1
+currentRoom = -1
 
 ammo = 0
 mag = 0

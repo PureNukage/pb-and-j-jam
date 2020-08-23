@@ -20,5 +20,4 @@ if opened and place_meeting(x,y,player) and Room > -1 {
 	app.ammo = player.ammo
 	app.mag = player.mag
 	room_goto(Room)
-	app.newRoom = true
 }

@@ -52,7 +52,7 @@ if time.stream == 2 {
 	}
 }
 
-if newRoom {
+if room != app.currentRoom {
 	cameraSetup()	
 	newRoom = false
 	
@@ -63,4 +63,6 @@ if newRoom {
 		x = player.x
 		y = player.y
 	}
+	
+	app.currentRoom = room
 }
