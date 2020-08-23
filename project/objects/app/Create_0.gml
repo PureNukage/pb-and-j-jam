@@ -3,6 +3,9 @@ version = ""
 
 newRoom = false
 
+ammo = 0
+mag = 0
+
 var Layer = "Instances"
 instance_create_layer(0,0,Layer,input)
 instance_create_layer(0,0,Layer,debug)

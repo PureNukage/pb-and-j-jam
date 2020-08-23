@@ -106,6 +106,8 @@ if alive {
 						pause = 60
 						state = state.shoot	
 						
+						//	
+						
 						//	Shoot
 						var Bullet = instance_create_layer(x,y,"Instances",bullet)
 						Bullet.direction = point_direction(x,y, player.x,player.y)

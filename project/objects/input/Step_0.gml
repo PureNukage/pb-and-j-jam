@@ -13,4 +13,6 @@ keyRight = keyboard_check(ord("D"))
 keyUp = keyboard_check(ord("W"))
 keyDown = keyboard_check(ord("S"))
 
+keyReload = keyboard_check_pressed(ord("R"))
+
 keyPlaceSpawn = keyboard_check_pressed(vk_space)

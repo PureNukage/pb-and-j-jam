@@ -19,7 +19,7 @@ if alive {
 		}
 	
 		var Direction = point_direction(0,0,hspd,vspd)
-		var Force = 5
+		var Force = 3
 		if hand.ID > -1 Force = 2
 		xx = lengthdir_x(Force, Direction)
 		yy = lengthdir_y(Force, Direction)
@@ -46,10 +46,14 @@ if alive {
 		if hand.ID > -1 {
 			drop()	
 		}
-		aim()	
+		aim()
 	}
 
 	if sprite_index != s_player_aim grab()
+	
+	//	Reloading
+	if input.keyReload reloading = true
+	if reloading reload()
 
 	if input.keyPlaceSpawn placeSpawn(x,y)
 	

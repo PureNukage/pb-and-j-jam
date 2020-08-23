@@ -9,7 +9,7 @@ if place_meeting(x+1,y+1,collision) or place_meeting(x-1,y-1,collision) {
 	if (ID1 > -1 and !ID1.bulletPass) or (ID2 > -1 and !ID2.bulletPass) instance_destroy()	
 }
 
-if place_meeting(x,y,class_grab) {
+if place_meeting(x,y,crate) {
 	instance_destroy()	
 }
 

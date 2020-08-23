@@ -43,4 +43,10 @@ if !onGround {
 }
 
 //draw_self()
+
+if imDamaged {
+	shader_set(shader_flash)	
+}
 draw_sprite_ext(sprite_index,image_index,x,z,image_xscale,image_yscale,image_angle,c_white,image_alpha)
+
+shader_reset()

@@ -84,6 +84,11 @@ function damaged() {
 			sprite_index = s_enemy_death
 			bloodPuddleAngle = irandom_range(-15,15)
 		}
+		
+		if object_index == crate { 
+			instance_destroy()
+			instance_create_layer(x,y-16,"Instances",ammunition)
+		}
 	}
 }
 
