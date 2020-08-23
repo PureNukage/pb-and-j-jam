@@ -34,7 +34,7 @@ reloading = false
 reloadingTimer = -1
 function reload() {
 	
-	var maxMag = 6
+	var maxMag = 8
 	var reloadSpeed = 15
 	if reloadingTimer == -1 {
 		reloadingTimer = reloadSpeed	
@@ -61,9 +61,6 @@ function reload() {
 }
 
 function aim() {
-	
-	sprite_index = s_player_aim
-	image_speed = 0
 	
 	var mouseDirection = point_direction(x,y, mouse_x,mouse_y)
 	
@@ -143,42 +140,42 @@ function aim() {
 	////	Determine aiming sprite
 	//	Top-right
 	if Direction == 45 {
-		image_index = 3
+		sprite_index = s_player_gun_walk_back_right
 		image_xscale = 1
 	} 
 	//	Up
 	else if Direction == 90 {
-		image_index = 4
+		sprite_index = s_player_gun_walk_back
 		image_xscale = 1
 	}
 	//	Top-left
 	else if Direction == 135 {
-		image_index = 3
+		sprite_index = s_player_gun_walk_back_right
 		image_xscale = -1
 	}
 	//	Left
 	else if Direction == 180 {
-		image_index = 2
+		sprite_index = s_player_gun_walk_side
 		image_xscale = -1
 	}
 	//	Bottom-left
 	else if Direction == 225 {
-		image_index = 1
+		sprite_index = s_player_gun_walk_front_right
 		image_xscale = -1
 	}
 	//	Bottom
 	else if Direction == 270 {
-		image_index = 0
+		sprite_index = s_player_gun_walk_front
 		image_xscale = 1
 	}
 	//	Bottom-right
 	else if Direction == 315 {
-		image_index = 1
+		sprite_index = s_player_gun_walk_front_right
 		image_xscale = 1
 	}
 	//	Right
 	else if Direction == 0 {
-		image_index = 2
+		sprite_index = s_player_gun_walk_side
 		image_xscale = 1
 	}
 	
@@ -219,14 +216,14 @@ function grab() {
 		var Direction = round(mouseDirection/45) * 45 % 360
 		
 		if Direction > 45 and Direction < 135 {
-			sprite_index = s_player_back	
+			sprite_index = s_player_goo_walk_back
 		} else if Direction > 135 and Direction < 225 {
-			sprite_index = s_player_side
+			sprite_index = s_player_goo_walk_side
 			image_xscale = -1
 		} else if Direction > 225 and Direction < 315 { 
-			sprite_index = s_player_front	
+			sprite_index = s_player_goo_walk_front	
 		} else if Direction > 315 or Direction < 45 {
-			sprite_index = s_player_side
+			sprite_index = s_player_goo_walk_side
 			image_xscale = 1
 		}
 	}

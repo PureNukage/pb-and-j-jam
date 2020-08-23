@@ -1,6 +1,7 @@
 var centerX = display_get_gui_width()/2
 var centerY = display_get_gui_height()/2
 
+//	The player is dead!
 if !player.alive {
 	
 	draw_set_color(c_black)
@@ -18,18 +19,12 @@ if !player.alive {
 	}
 	
 }
-
+// The player is alive!
 else {
-	if player.mag > 0 {
-		var xx = centerX - (32*3)
-		var yy = 60
-		for(var i=0;i<player.mag;i++) {
-			draw_sprite(s_bullet_gui, 0, xx,yy)
-			xx += 32
-		}
-	}
 	
-	var xx = centerX - (32*4)
+	draw_sprite(s_bullet_gui2, player.mag, centerX, 60)
+	
+	var xx = centerX - 64
 	draw_set_halign(fa_center)
 	draw_set_valign(fa_middle)
 	draw_set_font(fnt_speech)
