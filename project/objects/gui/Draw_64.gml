@@ -22,12 +22,12 @@ if !player.alive {
 // The player is alive!
 else {
 	
-	draw_sprite(s_bullet_gui2, player.mag, centerX, 60)
+	draw_sprite(s_bullet_gui2, player.mag, centerX, 36)
 	
 	var xx = centerX - 64
 	draw_set_halign(fa_center)
 	draw_set_valign(fa_middle)
 	draw_set_font(fnt_speech)
-	draw_text(xx,60,string(player.ammo))
+	draw_text(xx,36,string(player.ammo))
 	draw_reset()
 }

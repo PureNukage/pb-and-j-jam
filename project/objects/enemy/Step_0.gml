@@ -28,15 +28,21 @@ if alive {
 					
 						X = clamp(X, 0, room_width)
 						Y = clamp(Y, 0, room_height)
+						
+						var list2 = ds_list_create()
+						var numberOfCollisions = collision_line_list(X,Y, player.x,player.y, collision, true, true, list2, true)
+						if ((numberOfCollisions == 1 and list2[| 0].bulletPass) or number == 0) {
 					
-						//	I can pathfind, lets start walking
-						if pathfind(grid.mpGrid, path, x,y, X,Y) {
-							goal.x = X
-							goal.y = Y
-							xGoto = path_get_point_x(path,pos)
-							yGoto = path_get_point_y(path,pos)
-							state = state.walk
+							//	I can pathfind, lets start walking
+							if pathfind(grid.mpGrid, path, x,y, X,Y) {
+								goal.x = X
+								goal.y = Y
+								xGoto = path_get_point_x(path,pos)
+								yGoto = path_get_point_y(path,pos)
+								state = state.walk
+							}
 						}
+						ds_list_destroy(list2)
 					}
 					
 					else {
