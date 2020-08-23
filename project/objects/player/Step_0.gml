@@ -7,6 +7,7 @@ if alive {
 	
 		//	Sprite
 		image_speed = 1
+		if input.mouseRight image_speed = 0.5
 		if hand.ID == -1 {
 			if hspd != 0 {
 				sprite_index = s_player_walk_side
@@ -21,6 +22,7 @@ if alive {
 		var Direction = point_direction(0,0,hspd,vspd)
 		var Force = 3
 		if hand.ID > -1 Force = 2
+		if input.mouseRight Force = 2
 		xx = lengthdir_x(Force, Direction)
 		yy = lengthdir_y(Force, Direction)
 	
