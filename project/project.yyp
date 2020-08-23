@@ -26,6 +26,7 @@
     {"id":{"name":"snd_player_hit_3","path":"sounds/snd_player_hit_3/snd_player_hit_3.yy",},"order":16,},
     {"id":{"name":"snd_door","path":"sounds/snd_door/snd_door.yy",},"order":19,},
     {"id":{"name":"Room4","path":"rooms/Room4/Room4.yy",},"order":3,},
+    {"id":{"name":"s_wire","path":"sprites/s_wire/s_wire.yy",},"order":45,},
     {"id":{"name":"s_scientist","path":"sprites/s_scientist/s_scientist.yy",},"order":44,},
     {"id":{"name":"s_player_side","path":"sprites/s_player_side/s_player_side.yy",},"order":1,},
     {"id":{"name":"snd_player_dies_1","path":"sounds/snd_player_dies_1/snd_player_dies_1.yy",},"order":12,},
