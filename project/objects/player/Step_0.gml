@@ -57,7 +57,10 @@ if alive {
 	if input.keyReload reloading = true
 	if reloading reload()
 
-	if input.keyPlaceSpawn placeSpawn(x,y)
+	if input.keyPlaceSpawn {
+		placeSpawn(x,y)
+		sound.playSound(snd_squish)
+	}
 	
 	if hand.ID == -1 and !instance_position(mouse_x,mouse_y,all) {
 		cursor_sprite = s_cursor_aim	

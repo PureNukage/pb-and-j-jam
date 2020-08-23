@@ -20,6 +20,7 @@
     {"id":{"name":"s_idle","path":"sprites/s_idle/s_idle.yy",},"order":1,},
     {"id":{"name":"snd_gunfire_2","path":"sounds/snd_gunfire_2/snd_gunfire_2.yy",},"order":5,},
     {"id":{"name":"popup","path":"objects/popup/popup.yy",},"order":20,},
+    {"id":{"name":"snd_squish","path":"sounds/snd_squish/snd_squish.yy",},"order":24,},
     {"id":{"name":"fnt_speech","path":"fonts/fnt_speech/fnt_speech.yy",},"order":0,},
     {"id":{"name":"snd_player_hit_3","path":"sounds/snd_player_hit_3/snd_player_hit_3.yy",},"order":16,},
     {"id":{"name":"snd_door","path":"sounds/snd_door/snd_door.yy",},"order":19,},
@@ -110,9 +111,9 @@
     "children": [],
   },
   "RoomOrder": [
-    {"name":"Room3","path":"rooms/Room3/Room3.yy",},
     {"name":"Room1","path":"rooms/Room1/Room1.yy",},
     {"name":"Room2","path":"rooms/Room2/Room2.yy",},
+    {"name":"Room3","path":"rooms/Room3/Room3.yy",},
     {"name":"ROOM_TEMPLATE","path":"rooms/ROOM_TEMPLATE/ROOM_TEMPLATE.yy",},
     {"name":"Room4","path":"rooms/Room4/Room4.yy",},
   ],
