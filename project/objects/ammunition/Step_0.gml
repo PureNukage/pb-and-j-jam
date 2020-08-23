@@ -7,6 +7,11 @@ if distanceToPlayer < 120 {
 	
 	if distanceToPlayer < 24 {
 		
+		//	Boss fight ammo check
+		if room == Room4 and neededAmmo {
+			scientist.ammoSpawned = false	
+		}
+		
 		var Popup = instance_create_layer(x,y,"Instances",popup)
 		Popup.color = c_red
 		Popup.timer = 60

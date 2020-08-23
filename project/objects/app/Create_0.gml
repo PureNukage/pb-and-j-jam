@@ -13,10 +13,6 @@ instance_create_layer(0,0,Layer,time)
 instance_create_layer(0,0,Layer,gui)
 instance_create_layer(0,0,Layer,grid)
 instance_create_layer(0,0,Layer,sound)
-
-function changeRoom() {
-	cameraSetup()
-}
 	
 function scale_canvas(new_width, new_height) {
 	window_set_size(new_width, new_height)
@@ -33,6 +29,7 @@ function cameraSetup() {
 
 		width = 640
 		height = 360
+		zoom_level = 1
 
 		#region Views
 
@@ -79,7 +76,29 @@ function cameraSetup() {
 	
 		scale_canvas(1920,1080)
 
+		default_zoom_width = camera_get_view_width(camera)
+		default_zoom_height = camera_get_view_height(camera)
+
 	#endregion	
+}
+
+cameraOnPlayer = true
+function cameraFocus(X, Y) {
+	cameraOnPlayer = false
+	
+	var Lerp = 0.09
+	x = lerp(x, X, Lerp)
+	y = lerp(y, Y, Lerp)
+}
+	
+function screenShake(intensity) {
+	
+	var X = irandom_range(x-intensity, x+intensity)
+	var Y = irandom_range(y-intensity, y+intensity)
+	
+	x = X
+	y = Y
+	
 }
 	
 cameraSetup()
