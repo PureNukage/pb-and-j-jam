@@ -2,6 +2,8 @@ event_inherited()
 
 knocked = false
 
+alreadyUsed = false
+
 bloodPuddleSize = -1
 bloodPuddleAngle = -1
 bloodPuddleFinished = false
