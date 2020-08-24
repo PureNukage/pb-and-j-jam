@@ -6,7 +6,7 @@
   "option_html5_splash_png": "${base_options_dir}\\html5\\splash.png",
   "option_html5_usesplash": false,
   "option_html5_outputdebugtoconsole": false,
-  "option_html5_display_cursor": true,
+  "option_html5_display_cursor": false,
   "option_html5_localrunalert": true,
   "option_html5_index": "use_default",
   "option_html5_loadingbar": "Use Default",

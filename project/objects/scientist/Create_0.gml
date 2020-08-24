@@ -1,6 +1,6 @@
 batteries = 3
 
-stage = 0
+stage = -1
 
 hp = 12
 

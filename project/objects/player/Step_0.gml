@@ -49,7 +49,9 @@ if alive {
 	//	I got shot!
 	mask_index = s_player_hitbox
 	if place_meeting(x,y,bullet) and !instance_place(x,y,bullet).killsEnemy {
-		die()		
+		die()
+		
+		sound.playSound(choose(snd_player_hit_1, snd_player_hit_2, snd_player_hit_3))
 	}
 	mask_index = s_demon
 

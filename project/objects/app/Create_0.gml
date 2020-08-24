@@ -1,8 +1,7 @@
-creator = ""
-version = ""
+creator = "by PureNukage, Sinecure, Kei, WormholeOracle"
+version = "v0.0.1"
 
 newRoom = false
-previousRoom = -1
 currentRoom = -1
 
 ammo = 0

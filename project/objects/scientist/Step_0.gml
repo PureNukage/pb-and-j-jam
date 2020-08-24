@@ -9,15 +9,27 @@ layer_depth(room3ID, -2000)
 if place_meeting(x,y,bullet) and !imDamaged and (stage == 2 or stage == 8 or stage == 14) {
 	doDamage(1)
 	instance_destroy(instance_place(x,y,bullet)) 
+	
+	sound.playSound(choose(snd_enemy_hit_1, snd_enemy_hit_2, snd_enemy_hit_3))
 }
 
 if imDamaged damaged()
+
+if shields {
+	if !audio_is_playing(snd_shield1) sound.playSound(snd_shield1)
+} else if audio_is_playing(snd_shield1) audio_stop_sound(snd_shield1)
 
 var cameraDistance = 280
 
 batteries = 0
 with battery {
 	if alive other.batteries++
+}
+
+if stage == -1 and cameraDelay == -1 {
+	stage++
+	
+	sound.playSound(snd_cackle3)
 }
 
 //	Destroyed the first battery!
@@ -61,6 +73,8 @@ if batteries == 2 and stage == 2 and hp <= 8 {
 	shields = true
 	
 	cameraSet(x,y)
+	
+	sound.playSound(snd_angry1)
 }
 
 //	Angry yell
@@ -74,6 +88,8 @@ if batteries == 2 and stage == 4 {
 	
 	cameraSet(351, 317)
 	cameraDelay = 90
+	
+	sound.playSound(snd_cackle1)
 }
 
 //	Spawn enemies
@@ -132,6 +148,8 @@ if batteries == 1 and stage == 8 and hp <= 4 {
 	shields = true
 	
 	cameraSet(x,y)
+	
+	sound.playSound(snd_angry2)
 }
 	
 //	Angry yell
@@ -147,6 +165,8 @@ if batteries == 1 and stage == 10 {
 	
 	cameraSet(1056, 317)
 	cameraDelay = 90
+	
+	sound.playSound(snd_cackle2)
 }
 	
 //	Opening room2 and spawning enemies
@@ -198,6 +218,8 @@ if batteries == 0 and stage == 14 and hp <= 0 {
 	stage++
 	
 	cameraSet(x,y)
+	
+	sound.playSound(snd_angry1)
 }
 	
 //	Blowing up!!
