@@ -6,12 +6,14 @@ layer_depth(room1ID, -2000)
 layer_depth(room2ID, -2000)
 layer_depth(room3ID, -2000)
 
-if place_meeting(x,y,bullet) and !imDamaged {
+if place_meeting(x,y,bullet) and !imDamaged and (stage == 2 or stage == 8 or stage == 14) {
 	doDamage(1)
 	instance_destroy(instance_place(x,y,bullet)) 
 }
 
 if imDamaged damaged()
+
+var cameraDistance = 280
 
 batteries = 0
 with battery {
@@ -38,26 +40,44 @@ if batteries == 2 and stage == 1 and cameraDelay == -1 {
 	shields = false
 	
 }
+	
+//	Set the camera if the player gets close
+if stage == 2 and point_distance(x,y, player.x,player.y) < cameraDistance {
+	if app.cameraOnPlayer {
+		app.cameraOnPlayer = false
+		cameraSet(x,y)
+	}
+}
+else if !app.cameraOnPlayer {
+	app.cameraOnPlayer = true	
+}
 
 //	I've been shot 4 times
 if batteries == 2 and stage == 2 and hp <= 8 {
 	stage++
 	
+	timer = 90
+	
+	shields = true
+	
 	cameraSet(x,y)
 }
 
-//	Turn on shield
-if batteries == 2 and stage == 3 {
+//	Angry yell
+if stage == 3 and timer == -1 {
 	stage++
-	
-	shields = true
+}
+
+//	Opening door
+if batteries == 2 and stage == 4 {
+	stage++
 	
 	cameraSet(351, 317)
 	cameraDelay = 90
 }
 
 //	Spawn enemies
-if batteries == 2 and stage == 4 and cameraDelay == -1 {
+if batteries == 2 and stage == 5 and cameraDelay == -1 {
 	stage++
 	
 	room1Door.open()
@@ -74,7 +94,7 @@ if batteries == 2 and stage == 4 and cameraDelay == -1 {
 }
 
 //	Destroyed the second battery!
-if batteries == 1 and stage == 5 {
+if batteries == 1 and stage == 6 {
 	stage++
 	
 	var layerID = layer_get_id("Tiles_room2")
@@ -85,22 +105,42 @@ if batteries == 1 and stage == 5 {
 }
 	
 //	The shield is down!
-if batteries == 1 and stage == 6 and cameraDelay == -1 {
+if batteries == 1 and stage == 7 and cameraDelay == -1 {
 	stage++
 	
 	shields = false
 	
 }
+	
+//	Set the camera if the player gets close
+if stage == 8 and point_distance(x,y, player.x,player.y) < cameraDistance {
+	if app.cameraOnPlayer {
+		app.cameraOnPlayer = false
+		cameraSet(x,y)
+	}
+}
+else if !app.cameraOnPlayer {
+	app.cameraOnPlayer = true	
+}
 
 //	I've been shot 4 times
-if batteries == 1 and stage == 7 and hp <= 4 {
+if batteries == 1 and stage == 8 and hp <= 4 {
 	stage++
+	
+	timer = 90
+	
+	shields = true
 	
 	cameraSet(x,y)
 }
 	
+//	Angry yell
+if stage == 9 and timer == -1 {
+	stage++
+}
+	
 //	Turn on shield
-if batteries == 1 and stage == 8 {
+if batteries == 1 and stage == 10 {
 	stage++
 	
 	shields = true
@@ -110,7 +150,7 @@ if batteries == 1 and stage == 8 {
 }
 	
 //	Opening room2 and spawning enemies
-if batteries == 1 and stage == 9 and cameraDelay == -1 {
+if batteries == 1 and stage == 11 and cameraDelay == -1 {
 	stage++
 	
 	room2Door.open()
@@ -127,7 +167,7 @@ if batteries == 1 and stage == 9 and cameraDelay == -1 {
 }
 
 //	Destroyed the third battery!
-if batteries == 0 and stage == 10 {
+if batteries == 0 and stage == 12 {
 	stage++
 	
 	cameraSet(x, y)
@@ -135,22 +175,33 @@ if batteries == 0 and stage == 10 {
 } 
 	
 //	The shield is down!
-if batteries == 0 and stage == 11 and cameraDelay == -1 {
+if batteries == 0 and stage == 13 and cameraDelay == -1 {
 	stage++
 	
 	shields = false
 	
 }
 	
+//	Set the camera if the player gets close
+if stage == 14 and point_distance(x,y, player.x,player.y) < cameraDistance {
+	if app.cameraOnPlayer {
+		app.cameraOnPlayer = false
+		cameraSet(x,y)
+	}
+}
+else if !app.cameraOnPlayer {
+	app.cameraOnPlayer = true	
+}
+	
 //	I've been shot 4 times
-if batteries == 0 and stage == 12 and hp <= 0 {
+if batteries == 0 and stage == 14 and hp <= 0 {
 	stage++
 	
 	cameraSet(x,y)
 }
 	
 //	Blowing up!!
-else if batteries == 0 and stage == 13 {
+else if batteries == 0 and stage == 15 {
 	blowingUp = true
 	blowingUpCameraTimer--
 	
@@ -161,7 +212,7 @@ else if batteries == 0 and stage == 13 {
 		room3Door.open()
 		layer_set_visible(room3ID, false)
 		
-		blowingUpEndGame = 360
+		blowingUpEndGame = 420
 	}
 	
 	if blowingUpEndGame > 0 {
@@ -170,7 +221,7 @@ else if batteries == 0 and stage == 13 {
 		layer_set_visible(layerID, true)
 		layer_depth(layerID,-2000)
 		var backgroundLayerID = layer_background_get_id(layerID)
-		var alpha = 1 - (blowingUpEndGame / 360)
+		var alpha = 1 - (blowingUpEndGame / 420)
 		layer_background_alpha(backgroundLayerID, alpha)
 		
 		if blowingUpEndGame == 1 and !endgameZone.gameFinished {
@@ -183,6 +234,10 @@ else if batteries == 0 and stage == 13 {
 if cameraDelay > -1 {
 	cameraDelay--
 	cameraTime++	
+}
+
+if timer > -1 {
+	timer--	
 }
 
 if cameraControl and cameraDelay == -1 {

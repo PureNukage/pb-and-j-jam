@@ -7,6 +7,8 @@ hp = 12
 shields = true
 shieldsIndex = 0
 
+timer = -1
+
 damagedTimer = -1
 imDamaged = false
 function damaged() {
