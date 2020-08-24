@@ -88,8 +88,6 @@ if batteries == 2 and stage == 4 {
 	
 	cameraSet(351, 317)
 	cameraDelay = 90
-	
-	sound.playSound(snd_cackle1)
 }
 
 //	Spawn enemies
@@ -97,6 +95,8 @@ if batteries == 2 and stage == 5 and cameraDelay == -1 {
 	stage++
 	
 	room1Door.open()
+	
+	sound.playSound(snd_cackle1)
 	
 	//	Spawn enemies
 	var Enemy = instance_create_layer(350, 142, "Instances", enemy)
@@ -165,8 +165,6 @@ if batteries == 1 and stage == 10 {
 	
 	cameraSet(1056, 317)
 	cameraDelay = 90
-	
-	sound.playSound(snd_cackle2)
 }
 	
 //	Opening room2 and spawning enemies
@@ -174,6 +172,8 @@ if batteries == 1 and stage == 11 and cameraDelay == -1 {
 	stage++
 	
 	room2Door.open()
+	
+	sound.playSound(snd_cackle2)
 	
 	//	Spawn enemies
 	var Enemy = instance_create_layer(1057, 101, "Instances", enemy)
