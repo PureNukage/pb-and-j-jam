@@ -7,6 +7,6 @@ if blowingUp {
 		var X = irandom_range(512, 895)
 		var Y = irandom_range(0, 256)
 		instance_create_layer(X,Y,"Instances",explosion)
-		blowingUpTimer = 15
+		blowingUpTimer = 8
 	}
 }

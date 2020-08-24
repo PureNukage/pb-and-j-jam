@@ -1,6 +1,8 @@
 if alive {
-	hspd = input.keyRight - input.keyLeft
-	vspd = input.keyDown - input.keyUp
+	if canControl {
+		hspd = input.keyRight - input.keyLeft
+		vspd = input.keyDown - input.keyUp
+	}
 
 	//	If applying movement
 	if (hspd != 0 or vspd != 0) {

@@ -73,6 +73,22 @@ else if batteries == 0 and stage == 3 {
 		cameraSet(1247, 294)
 		room3Door.open()
 		layer_set_visible(room3ID, false)
+		
+		blowingUpEndGame = 360
+	}
+	
+	if blowingUpEndGame > 0 {
+		blowingUpEndGame--
+		var layerID = layer_get_id("white")
+		layer_set_visible(layerID, true)
+		layer_depth(layerID,-2000)
+		var backgroundLayerID = layer_background_get_id(layerID)
+		var alpha = 1 - (blowingUpEndGame / 360)
+		layer_background_alpha(backgroundLayerID, alpha)
+		
+		if blowingUpEndGame == 1 and !endgameZone.gameFinished {
+			player.die()	
+		}
 	}
 }
 

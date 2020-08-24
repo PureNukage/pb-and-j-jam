@@ -1,0 +1,1 @@
+Y = room_height + 60

@@ -3,8 +3,9 @@ batteries = 3
 stage = 0
 
 blowingUp = false
-blowingUpTimer = 15
+blowingUpTimer = 8
 blowingUpCameraTimer = 240
+blowingUpEndGame = -1
 
 room1Door = -1
 room2Door = -1

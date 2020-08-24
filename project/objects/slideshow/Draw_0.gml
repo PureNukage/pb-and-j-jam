@@ -10,3 +10,7 @@ else {
 if stage < array_length(slides) {
 	draw_sprite(slides[stage], 0, 0, 0)
 }
+
+if input.mouseLeftPress {
+	timer = 0	
+}

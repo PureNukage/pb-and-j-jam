@@ -65,4 +65,8 @@ if room != app.currentRoom {
 	}
 	
 	app.currentRoom = room
+	
+	if app.currentRoom == Room1 {
+		instance_create_layer(x,y,"Instances",sequences)	
+	}
 }

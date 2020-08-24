@@ -2,6 +2,7 @@ event_inherited()
 
 if !instance_exists(app) instance_create_layer(0,0,"Instances",app)
 
+canControl = true
 hspd = 0
 vspd = 0
 xx = 0
