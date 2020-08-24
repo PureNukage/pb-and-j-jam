@@ -6,6 +6,13 @@ layer_depth(room1ID, -2000)
 layer_depth(room2ID, -2000)
 layer_depth(room3ID, -2000)
 
+if place_meeting(x,y,bullet) and !imDamaged {
+	doDamage(1)
+	instance_destroy(instance_place(x,y,bullet)) 
+}
+
+if imDamaged damaged()
+
 batteries = 0
 with battery {
 	if alive other.batteries++
@@ -18,14 +25,39 @@ if batteries == 2 and stage == 0 {
 	var layerID = layer_get_id("Tiles_room1")
 	layer_set_visible(layerID, false)
 	
-	cameraSet(351, 317)
+	cameraSet(x, y)
 	
 	cameraDelay = 90
 
 }
-
-//	Opening room1 and spawning enemies
+	
+//	The shield is down!
 if batteries == 2 and stage == 1 and cameraDelay == -1 {
+	stage++
+	
+	shields = false
+	
+}
+
+//	I've been shot 4 times
+if batteries == 2 and stage == 2 and hp <= 8 {
+	stage++
+	
+	cameraSet(x,y)
+}
+
+//	Turn on shield
+if batteries == 2 and stage == 3 {
+	stage++
+	
+	shields = true
+	
+	cameraSet(351, 317)
+	cameraDelay = 90
+}
+
+//	Spawn enemies
+if batteries == 2 and stage == 4 and cameraDelay == -1 {
 	stage++
 	
 	room1Door.open()
@@ -38,23 +70,47 @@ if batteries == 2 and stage == 1 and cameraDelay == -1 {
 	var Enemy = instance_create_layer(350, 132, "Instances", enemy)
 	Enemy.zone = zone1
 	var Enemy = instance_create_layer(350, 122, "Instances", enemy)
-	Enemy.zone = zone1	
+	Enemy.zone = zone1
 }
 
 //	Destroyed the second battery!
-if batteries == 1 and stage == 2 {
+if batteries == 1 and stage == 5 {
 	stage++
 	
 	var layerID = layer_get_id("Tiles_room2")
 	layer_set_visible(layerID, false)
 	
-	cameraSet(1056, 317)
+	cameraSet(x, y)
+	cameraDelay = 90
+}
 	
+//	The shield is down!
+if batteries == 1 and stage == 6 and cameraDelay == -1 {
+	stage++
+	
+	shields = false
+	
+}
+
+//	I've been shot 4 times
+if batteries == 1 and stage == 7 and hp <= 4 {
+	stage++
+	
+	cameraSet(x,y)
+}
+	
+//	Turn on shield
+if batteries == 1 and stage == 8 {
+	stage++
+	
+	shields = true
+	
+	cameraSet(1056, 317)
 	cameraDelay = 90
 }
 	
 //	Opening room2 and spawning enemies
-if batteries == 1 and stage == 3 and cameraDelay == -1 {
+if batteries == 1 and stage == 9 and cameraDelay == -1 {
 	stage++
 	
 	room2Door.open()
@@ -71,14 +127,30 @@ if batteries == 1 and stage == 3 and cameraDelay == -1 {
 }
 
 //	Destroyed the third battery!
-if batteries == 0 and stage == 4 {
+if batteries == 0 and stage == 10 {
 	stage++
 	
 	cameraSet(x, y)
+	cameraDelay = 90
 } 
 	
+//	The shield is down!
+if batteries == 0 and stage == 11 and cameraDelay == -1 {
+	stage++
+	
+	shields = false
+	
+}
+	
+//	I've been shot 4 times
+if batteries == 0 and stage == 12 and hp <= 0 {
+	stage++
+	
+	cameraSet(x,y)
+}
+	
 //	Blowing up!!
-else if batteries == 0 and stage == 5 {
+else if batteries == 0 and stage == 13 {
 	blowingUp = true
 	blowingUpCameraTimer--
 	

@@ -2,6 +2,41 @@ batteries = 3
 
 stage = 0
 
+hp = 12
+
+shields = true
+shieldsIndex = 0
+
+damagedTimer = -1
+imDamaged = false
+function damaged() {
+	if damagedTimer > -1 damagedTimer--
+	
+	if damagedTimer == 0 {
+		imDamaged = false
+		if object_index == enemy {
+			alive = false
+			sprite_index = s_enemy_death
+			bloodPuddleAngle = irandom_range(-15,15)
+		}
+		
+		if object_index == crate {
+			if player.hand.ID == id {
+				player.drop()	
+			}
+			
+			if ammoCrate instance_create_layer(x,y-16,"Instances",ammunition)
+			instance_destroy()
+		}
+	}
+}
+
+function doDamage(damage) {
+	hp -= damage
+	imDamaged = true
+	damagedTimer = 5
+}
+
 blowingUp = false
 blowingUpTimer = 8
 blowingUpCameraTimer = 240
