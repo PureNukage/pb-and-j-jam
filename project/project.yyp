@@ -66,6 +66,7 @@
     {"id":{"name":"s_player_shot_death","path":"sprites/s_player_shot_death/s_player_shot_death.yy",},"order":40,},
     {"id":{"name":"s_goo","path":"sprites/s_goo/s_goo.yy",},"order":7,},
     {"id":{"name":"grid","path":"objects/grid/grid.yy",},"order":5,},
+    {"id":{"name":"s_player_goo_respawn","path":"sprites/s_player_goo_respawn/s_player_goo_respawn.yy",},"order":41,},
     {"id":{"name":"s_cursor_aim","path":"sprites/s_cursor_aim/s_cursor_aim.yy",},"order":19,},
     {"id":{"name":"slideshow","path":"objects/slideshow/slideshow.yy",},"order":27,},
     {"id":{"name":"s_barrel","path":"sprites/s_barrel/s_barrel.yy",},"order":13,},

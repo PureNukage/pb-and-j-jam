@@ -89,9 +89,7 @@ if alive {
 //	Dead
 else {
 	if spawning {
-		image_index -= 0.25
-		//image_index = floor(image_index)
-		if floor(image_index) <= 0 {
+		if animation_end {
 			spawning = false
 			alive = true
 			sprite_index = s_player_front
