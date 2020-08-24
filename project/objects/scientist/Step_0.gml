@@ -20,6 +20,14 @@ if batteries == 2 and stage == 0 {
 	
 	cameraSet(351, 317)
 	
+	cameraDelay = 90
+
+}
+
+//	Opening room1 and spawning enemies
+if batteries == 2 and stage == 1 and cameraDelay == -1 {
+	stage++
+	
 	room1Door.open()
 	
 	//	Spawn enemies
@@ -30,17 +38,24 @@ if batteries == 2 and stage == 0 {
 	var Enemy = instance_create_layer(350, 132, "Instances", enemy)
 	Enemy.zone = zone1
 	var Enemy = instance_create_layer(350, 122, "Instances", enemy)
-	Enemy.zone = zone1
+	Enemy.zone = zone1	
 }
 
 //	Destroyed the second battery!
-if batteries == 1 and stage == 1 {
+if batteries == 1 and stage == 2 {
 	stage++
 	
 	var layerID = layer_get_id("Tiles_room2")
 	layer_set_visible(layerID, false)
 	
 	cameraSet(1056, 317)
+	
+	cameraDelay = 90
+}
+	
+//	Opening room2 and spawning enemies
+if batteries == 1 and stage == 3 and cameraDelay == -1 {
+	stage++
 	
 	room2Door.open()
 	
@@ -52,18 +67,18 @@ if batteries == 1 and stage == 1 {
 	var Enemy = instance_create_layer(1057, 121, "Instances", enemy)
 	Enemy.zone = zone2
 	var Enemy = instance_create_layer(1057, 91, "Instances", enemy)
-	Enemy.zone = zone2
+	Enemy.zone = zone2	
 }
 
 //	Destroyed the third battery!
-if batteries == 0 and stage == 2 {
+if batteries == 0 and stage == 4 {
 	stage++
 	
 	cameraSet(x, y)
 } 
 	
 //	Blowing up!!
-else if batteries == 0 and stage == 3 {
+else if batteries == 0 and stage == 5 {
 	blowingUp = true
 	blowingUpCameraTimer--
 	
@@ -92,7 +107,13 @@ else if batteries == 0 and stage == 3 {
 	}
 }
 
-if cameraControl {
+
+if cameraDelay > -1 {
+	cameraDelay--
+	cameraTime++	
+}
+
+if cameraControl and cameraDelay == -1 {
 	var timeDiff = time.stream - cameraTime
 	if timeDiff < cameraDuration {
 		app.cameraFocus(cameraX, cameraY)	

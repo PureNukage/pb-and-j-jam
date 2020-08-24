@@ -19,6 +19,7 @@ cameraX = -1
 cameraY = -1
 cameraDuration = 120
 cameraTime = time.stream
+cameraDelay = -1
 
 function cameraSet(x, y) {
 	cameraTime = time.stream
@@ -28,3 +29,4 @@ function cameraSet(x, y) {
 }
 
 cameraSet(x,y)
+cameraDelay = 90
