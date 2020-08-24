@@ -11,9 +11,288 @@ yy = 0
 ammo = app.ammo
 mag = app.mag
 
+gooDelay = true
+
 spawn = {
 	x: -1,
 	y: -1,
+	
+	listCrates: ds_list_create(),
+	listEnemies: ds_list_create(),
+	listBarrels: ds_list_create(),
+	listAmmo: ds_list_create()
+	
+}
+
+function placeSpawn(x, y) {
+	spawn.x = x
+	spawn.y = y
+	debug.log("Placing spawn at: "+string(x) + "," + string(y))
+	
+	spawn.ammo = player.ammo
+	spawn.mag = player.mag
+	
+	if instance_exists(crate) {
+		var number = instance_number(crate)
+		ds_list_clear(spawn.listCrates)
+		
+		for(var i=0;i<number;i++) {
+			spawn.listCrates[| i] = {
+				
+			}
+		}
+		
+		var i = 0
+		with crate {
+			var Object = player.spawn.listCrates[| i]
+			Object.x = id.x
+			Object.y = id.y
+			Object.ID = id
+			Object.alive = alive
+			Object.visible = visible
+			Object.hp = hp
+			
+			player.spawn.listCrates[| i] = Object
+			
+			i++
+		}	
+	}
+	
+	if instance_exists(barrel) {
+		var number = instance_number(barrel)
+		ds_list_clear(spawn.listBarrels)
+		
+		for(var i=0;i<number;i++) {
+			spawn.listBarrels[| i] = {
+				
+			}
+		}
+		
+		var i = 0
+		with barrel {
+			var Object = player.spawn.listBarrels[| i]
+			Object.x = id.x
+			Object.y = id.y
+			Object.ID = id
+			Object.knocked = knocked
+			Object.alreadyUsed = alreadyUsed
+			Object.bloodPuddleSize = bloodPuddleSize
+			Object.bloodPuddleAngle = bloodPuddleAngle
+			Object.bloodPuddleFinished = bloodPuddleFinished
+			Object.sprite_index = sprite_index
+			Object.image_index = image_index
+			
+			
+			player.spawn.listBarrels[| i] = Object		
+			i++
+		}			
+	}
+		
+	if instance_exists(enemy) {
+		var number = instance_number(enemy)
+		ds_list_clear(spawn.listEnemies)
+		
+		for(var i=0;i<number;i++) {
+			spawn.listEnemies[| i] = {
+				
+			}
+		}
+		
+		var i = 0
+		with enemy {
+			var Object = player.spawn.listEnemies[| i]
+			Object.x = id.x
+			Object.y = id.y
+			Object.ID = id
+			Object.aggro = aggro
+			Object.alive = alive
+			
+			Object.bloodPuddleSize = bloodPuddleSize
+			Object.bloodPuddleAngle  = bloodPuddleAngle
+			
+			Object.sprite_index = sprite_index
+			Object.image_index = image_index
+			
+			
+			player.spawn.listEnemies[| i] = Object		
+			i++
+		}	
+	}
+		
+	if instance_exists(ammunition) {
+		var number = instance_number(ammunition)
+		for(var i=0;i<number;i++) {
+			spawn.listAmmo[| i] = {
+					
+			}
+		}
+		
+		var i = 0
+		with ammunition {
+			var Object = player.spawn.listAmmo[| i]
+			Object.x = id.x
+			Object.y = id.y
+			Object.ID = id
+			
+			player.spawn.listAmmo[| i] = Object
+			
+			i++	
+		}
+	}
+		
+	if room = Room4 {
+		spawn.stage = scientist.stage
+		spawn.hp = scientist.hp
+		spawn.shields = scientist.shields
+		spawn.timer = scientist.timer
+		spawn.blowingUp = scientist.blowingUp
+		spawn.blowingUpTimer = scientist.blowingUpTimer
+		spawn.blowingUpCameraTimer =scientist.blowingUpCameraTimer
+		spawn.blowingUpEndGame = scientist.blowingUpEndGame
+		spawn.ammoSpawned = scientist.ammoSpawned
+		spawn.cameraControl = scientist.cameraControl
+		spawn.cameraX = scientist.cameraX
+		spawn.cameraY = scientist.cameraY
+		spawn.cameraDuration = scientist.cameraDuration
+		spawn.cameraTime = scientist.cameraTime
+		spawn.cameraDelay = scientist.cameraDelay
+		
+	}
+}
+
+function spawnRespawn() {
+	
+	player.ammo = spawn.ammo
+	player.mag = spawn.mag
+	
+	if instance_exists(crate) {
+		for(var i=0;i<ds_list_size(spawn.listCrates);i++) {
+			var Object = spawn.listCrates[| i]
+			var Crate = Object.ID
+			
+			with Crate {
+				if grabbed {
+					player.drop()	
+				}
+				x = Object.x
+				y = Object.y
+				alive = Object.alive
+				visible = Object.visible
+				hp = Object.hp
+			}
+			
+		}
+	}
+		
+	if instance_exists(barrel) {
+		for(var i=0;i<ds_list_size(spawn.listBarrels);i++) {
+			var Object = spawn.listBarrels[| i]
+			var Barrel = Object.ID
+			
+			with Barrel {
+				if grabbed {
+					player.drop()	
+				}
+				x = Object.x
+				y = Object.y
+				
+				//	Cleanup old goo puddle
+				if knocked and !Object.knocked {
+					instance_destroy(myGoo)
+					myGoo = -1
+				}
+				
+				knocked = Object.knocked
+				alreadyUsed = Object.alreadyUsed
+				bloodPuddleSize = Object.bloodPuddleSize
+				bloodPuddleAngle = Object.bloodPuddleAngle
+				bloodPuddleFinished = Object.bloodPuddleFinished
+				sprite_index = Object.sprite_index
+				image_index = Object.image_index	
+			}
+			
+		}	
+	}
+		
+	if room != Room4 if instance_exists(enemy) {
+		for(var i=0;i<ds_list_size(spawn.listEnemies);i++) {
+			var Object = spawn.listEnemies[| i]
+			var Enemy = Object.ID
+			
+			with Enemy {
+				x = Object.x
+				y = Object.y
+				alive = Object.alive
+				aggro = Object.aggro
+			
+				bloodPuddleSize = Object.bloodPuddleSize
+				bloodPuddleAngle  = Object.bloodPuddleAngle
+			
+				sprite_index = Object.sprite_index
+				image_index = Object.image_index
+				
+			}
+			
+		}	
+	}
+		
+	if instance_exists(bullet) with bullet instance_destroy()
+	
+	if !ds_list_empty(spawn.listAmmo) {
+		for(var i=0;i<ds_list_size(spawn.listAmmo);i++) {
+			var Object = spawn.listAmmo[| i]
+			
+			if instance_exists(Object.ID) {
+				with Object.ID {
+					x = Object.x
+					y = Object.y
+				}
+			} else {
+				var ID = instance_create_layer(Object.x,Object.y,"Instances",ammunition)
+				spawn.listAmmo[| i].ID = ID
+			}
+		}
+	}
+		
+	if room = Room4 {
+		scientist.stage = spawn.stage
+		scientist.hp = spawn.hp
+		scientist.shields = spawn.shields
+		scientist.timer = spawn.timer
+		scientist.blowingUp = spawn.blowingUp
+		scientist.blowingUpTimer = spawn.blowingUpTimer
+		scientist.blowingUpCameraTimer = spawn.blowingUpCameraTimer
+		scientist.blowingUpEndGame = spawn.blowingUpEndGame
+		scientist.ammoSpawned = spawn.ammoSpawned
+		scientist.cameraControl = spawn.cameraControl
+		scientist.cameraX = spawn.cameraX
+		scientist.cameraY = spawn.cameraY
+		scientist.cameraDuration = spawn.cameraDuration
+		scientist.cameraTime = spawn.cameraTime
+		scientist.cameraDelay = spawn.cameraDelay
+		
+		var room1ID = layer_get_id("Tiles_room1")
+		var room2ID = layer_get_id("Tiles_room2")
+		var room3ID = layer_get_id("Tiles_room3")
+		var watchID = layer_get_id("white")
+		var backgroundID = layer_background_get_id(watchID)
+		layer_background_alpha(backgroundID, 1)
+		layer_set_visible(watchID, false)
+		layer_set_visible(room1ID, true)
+		layer_set_visible(room2ID, true)
+		layer_set_visible(room3ID, true)
+		
+		with door close()
+		
+		with battery {
+			alive = true
+			sprite_index = s_wire
+		}
+		
+		if instance_exists(enemy) with enemy instance_destroy()
+	}
+	
+	
 }
 
 hand = {
@@ -23,12 +302,6 @@ hand = {
 function die() {
 	sprite_index = s_skull	
 	alive = false
-}
-
-function placeSpawn(x, y) {
-	spawn.x = x
-	spawn.y = y
-	debug.log("Placing spawn at: "+string(x) + "," + string(y))
 }
 
 reloading = false
@@ -254,5 +527,3 @@ function drop() {
 }
 	
 mask_index = s_demon
-	
-placeSpawn(x,y)

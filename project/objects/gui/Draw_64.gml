@@ -17,6 +17,8 @@ if instance_exists(player) {
 			player.x = player.spawn.x
 			player.y = player.spawn.y
 			player.sprite_index = s_player_front
+			
+			player.spawnRespawn()
 		}
 	
 	}

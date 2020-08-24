@@ -1,3 +1,8 @@
+if gooDelay {
+	placeSpawn(x,y)
+	gooDelay = false
+}
+
 if alive {
 	if canControl {
 		hspd = input.keyRight - input.keyLeft
@@ -61,7 +66,7 @@ if alive {
 	if input.keyReload reloading = true
 	if reloading reload()
 
-	if input.keyPlaceSpawn {
+	if input.keyPlaceSpawn and room != Room4 {
 		placeSpawn(x,y)
 		sound.playSound(snd_squish)
 	}

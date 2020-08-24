@@ -5,7 +5,6 @@ stage = 0
 hp = 12
 
 shields = true
-shieldsIndex = 0
 
 timer = -1
 

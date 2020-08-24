@@ -3,6 +3,7 @@ event_inherited()
 knocked = false
 
 alreadyUsed = false
+myGoo = -1
 
 bloodPuddleSize = -1
 bloodPuddleAngle = -1
@@ -16,7 +17,7 @@ function bloodPuddle() {
 	else if bloodPuddleSize < maxSize {
 		bloodPuddleSize = approach(bloodPuddleSize, maxSize, 0.05)
 	} else {
-		instance_create_layer(x+(16*image_xscale),y+3,"Instances",goo)
+		myGoo = instance_create_layer(x+(16*image_xscale),y+3,"Instances",goo)
 		bloodPuddleFinished = true
 	}
 	
