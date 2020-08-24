@@ -13,6 +13,8 @@ mag = app.mag
 
 gooDelay = true
 
+spawning = false
+
 spawn = {
 	x: -1,
 	y: -1,
@@ -299,9 +301,10 @@ hand = {
 	ID: -1,
 }
 
-function die() {
-	sprite_index = s_skull	
+function die() {	
 	alive = false
+	
+	if hand.ID > -1 drop()
 }
 
 reloading = false

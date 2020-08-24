@@ -43,12 +43,16 @@ if alive {
 	
 	//	Touching goo
 	if place_meeting(x,y,goo) {
+		sprite_index = s_player_goo_death
 		die()		
 	}
 	
 	//	I got shot!
 	mask_index = s_player_hitbox
 	if place_meeting(x,y,bullet) and !instance_place(x,y,bullet).killsEnemy {
+		sprite_index = s_player_shot_death
+		image_index = 0
+		image_speed = 1
 		die()
 		
 		sound.playSound(choose(snd_player_hit_1, snd_player_hit_2, snd_player_hit_3))
@@ -59,10 +63,10 @@ if alive {
 		if hand.ID > -1 {
 			drop()	
 		}
-		aim()
+		if alive aim()
 	}
 
-	if sprite_index != s_player_aim grab()
+	if sprite_index != s_player_aim and alive grab()
 	
 	//	Reloading
 	if input.keyReload reloading = true
@@ -84,7 +88,16 @@ if alive {
 }
 //	Dead
 else {
-	sprite_index = s_skull
+	if spawning {
+		image_index -= 0.25
+		//image_index = floor(image_index)
+		if floor(image_index) <= 0 {
+			spawning = false
+			alive = true
+			sprite_index = s_player_front
+		}
+	}
+	else if animation_end image_index = image_number-1
 }
 
 depth = -y

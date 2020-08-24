@@ -13,10 +13,14 @@ if instance_exists(player) {
 		draw_text_transformed(centerX,centerY, "Press <SPACE> to respawn", 3,3, 0)
 	
 		if input.keyPlaceSpawn {
-			player.alive = true
+			player.spawning = true
 			player.x = player.spawn.x
 			player.y = player.spawn.y
-			player.sprite_index = s_player_front
+			player.sprite_index = s_player_goo_death
+			player.image_index = player.image_number-1
+			player.image_speed = 0
+			
+			sound.playSound(choose(snd_squish1, snd_squish2, snd_squish3))
 			
 			player.spawnRespawn()
 		}
