@@ -11,6 +11,8 @@ if place_meeting(x,y,bullet) and !imDamaged and (stage == 2 or stage == 8 or sta
 	instance_destroy(instance_place(x,y,bullet)) 
 	
 	sound.playSound(choose(snd_enemy_hit_1, snd_enemy_hit_2, snd_enemy_hit_3))
+	
+	sprite_index = s_scientist_hit
 }
 
 if imDamaged damaged()
@@ -30,7 +32,11 @@ if stage == -1 and cameraDelay == -1 {
 	stage++
 	
 	sound.playSound(snd_cackle3)
+	
+	sprite_index = s_scientist_laugh
 }
+
+if stage == 0 and !audio_is_playing(snd_cackle3) sprite_index = s_scientist_idle
 
 //	Destroyed the first battery!
 if batteries == 2 and stage == 0 {
@@ -75,6 +81,8 @@ if batteries == 2 and stage == 2 and hp <= 8 {
 	cameraSet(x,y)
 	
 	sound.playSound(snd_angry1)
+	
+	sprite_index = s_scientist_laugh
 }
 
 //	Angry yell
@@ -98,6 +106,8 @@ if batteries == 2 and stage == 5 and cameraDelay == -1 {
 	
 	sound.playSound(snd_cackle1)
 	
+	sprite_index = s_scientist_laugh
+	
 	//	Spawn enemies
 	var Enemy = instance_create_layer(350, 142, "Instances", enemy)
 	Enemy.zone = zone1
@@ -108,6 +118,8 @@ if batteries == 2 and stage == 5 and cameraDelay == -1 {
 	var Enemy = instance_create_layer(350, 122, "Instances", enemy)
 	Enemy.zone = zone1
 }
+	
+if stage == 6 and !audio_is_playing(snd_cackle1) sprite_index = s_scientist_idle
 
 //	Destroyed the second battery!
 if batteries == 1 and stage == 6 {
@@ -150,6 +162,8 @@ if batteries == 1 and stage == 8 and hp <= 4 {
 	cameraSet(x,y)
 	
 	sound.playSound(snd_angry2)
+	
+	sprite_index = s_scientist_laugh
 }
 	
 //	Angry yell
@@ -165,6 +179,8 @@ if batteries == 1 and stage == 10 {
 	
 	cameraSet(1056, 317)
 	cameraDelay = 90
+	
+	sprite_index = s_scientist_idle
 }
 	
 //	Opening room2 and spawning enemies
@@ -174,6 +190,8 @@ if batteries == 1 and stage == 11 and cameraDelay == -1 {
 	room2Door.open()
 	
 	sound.playSound(snd_cackle2)
+	
+	sprite_index = s_scientist_laugh
 	
 	//	Spawn enemies
 	var Enemy = instance_create_layer(1057, 101, "Instances", enemy)
@@ -185,6 +203,8 @@ if batteries == 1 and stage == 11 and cameraDelay == -1 {
 	var Enemy = instance_create_layer(1057, 91, "Instances", enemy)
 	Enemy.zone = zone2	
 }
+	
+if stage == 12 and !audio_is_playing(snd_cackle2) sprite_index = s_scientist_idle
 
 //	Destroyed the third battery!
 if batteries == 0 and stage == 12 {
@@ -220,12 +240,16 @@ if batteries == 0 and stage == 14 and hp <= 0 {
 	cameraSet(x,y)
 	
 	sound.playSound(snd_angry1)
+	
+	sprite_index = s_scientist_laugh
 }
 	
 //	Blowing up!!
 else if batteries == 0 and stage == 15 {
 	blowingUp = true
 	blowingUpCameraTimer--
+	
+	sprite_index = s_scientist_laugh
 	
 	app.screenShake(10)
 	

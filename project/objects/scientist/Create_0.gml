@@ -15,6 +15,9 @@ function damaged() {
 	
 	if damagedTimer == 0 {
 		imDamaged = false
+		
+		sprite_index = s_scientist_idle
+		
 		if object_index == enemy {
 			alive = false
 			sprite_index = s_enemy_death

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "s_scientist",
-    "path": "sprites/s_scientist/s_scientist.yy",
+    "name": "s_scientist_idle",
+    "path": "sprites/s_scientist_idle/s_scientist_idle.yy",
   },
   "solid": false,
   "visible": true,
