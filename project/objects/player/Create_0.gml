@@ -159,19 +159,6 @@ function placeSpawn(x, y) {
 		spawn.cameraTime = scientist.cameraTime
 		spawn.cameraDelay = scientist.cameraDelay
 		
-		spawn.wires = []
-		spawn.wires[0][0] = inst_4A210219
-		spawn.wires[0][1] = spawn.wires[0][0].sprite_index
-		spawn.wires[0][2] = spawn.wires[0][0].alive
-		
-		spawn.wires[1][0] = inst_1BD4B24B
-		spawn.wires[1][1] = spawn.wires[1][0].sprite_index
-		spawn.wires[1][2] = spawn.wires[1][0].alive
-		
-		spawn.wires[2][0] = inst_3B28F06
-		spawn.wires[2][1] = spawn.wires[2][0].sprite_index
-		spawn.wires[2][2] = spawn.wires[2][0].alive
-		
 	}
 }
 
@@ -229,7 +216,7 @@ function spawnRespawn() {
 		}	
 	}
 		
-	if instance_exists(enemy) {
+	if room != Room4 if instance_exists(enemy) {
 		for(var i=0;i<ds_list_size(spawn.listEnemies);i++) {
 			var Object = spawn.listEnemies[| i]
 			var Enemy = Object.ID
@@ -293,53 +280,18 @@ function spawnRespawn() {
 		var backgroundID = layer_background_get_id(watchID)
 		layer_background_alpha(backgroundID, 1)
 		layer_set_visible(watchID, false)
-		//layer_set_visible(room1ID, true)
-		//layer_set_visible(room2ID, true)
+		layer_set_visible(room1ID, true)
+		layer_set_visible(room2ID, true)
 		layer_set_visible(room3ID, true)
 		
-		//with door close()
+		with door close()
 		
-		//with battery {
-		//	alive = true
-		//	sprite_index = s_wire
-		//}
-		for(var i=0;i<3;i++) {
-			spawn.wires[i][0].sprite_index = spawn.wires[i][1]
-			spawn.wires[i][0].alive = spawn.wires[i][2]
+		with battery {
+			alive = true
+			sprite_index = s_wire
 		}
 		
-		//if instance_exists(enemy) with enemy instance_destroy()
-		
-		var numberOfEnemies = ds_list_size(spawn.listEnemies)
-		
-		var stageRoom1 = 5
-		var stageRoom2 = 11
-		if numberOfEnemies > 0 {
-			if numberOfEnemies == 8 {
-			
-			if scientist.stage < stageRoom2 {
-				with enemy if zone ==  scientist.zone2 instance_destroy()
-				layer_set_visible(room2ID, true)
-				with inst_15C1E545 close()
-			}
-			
-			if scientist.stage < stageRoom1 {
-				with enemy if zone ==  scientist.zone1 instance_destroy()
-				layer_set_visible(room1ID, true)
-				with inst_60F4E9AF close()
-			}
-				
-				
-			} else if numberOfEnemies == 4 {
-				
-				if scientist.stage < stageRoom1 {
-					with enemy if zone ==  scientist.zone1 instance_destroy()
-					layer_set_visible(room1ID, true)
-					with inst_60F4E9AF close()
-				}
-				
-			}
-		}
+		if instance_exists(enemy) with enemy instance_destroy()
 	}
 	
 	

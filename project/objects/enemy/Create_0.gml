@@ -3,8 +3,6 @@ event_inherited()
 aggro = false
 zone = -1
 
-Room = -1
-
 mask_index = s_demon
 
 goal = {
