@@ -1,5 +1,6 @@
 stage = 0
-timer = 2000
+timerMax = 2000
+timer = timerMax
 slides = []
 slides[0] = s_portrait_00
 slides[1] = s_portrait0

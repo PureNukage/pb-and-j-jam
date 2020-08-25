@@ -5,7 +5,7 @@ if stage > 0 and !audio_is_playing(snd_wind) {
 if timer > 0 timer--
 else {
 	stage++
-	timer = 180
+	timer = timerMax
 	if stage >= array_length(slides) {
 		room_goto(Room1)
 		
