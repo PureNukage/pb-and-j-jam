@@ -11,6 +11,8 @@ goal = {
 	ID: -1,
 }
 
+waitTimer = -1
+
 state = state.idle
 
 bloodPuddleSize = -1

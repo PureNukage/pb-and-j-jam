@@ -1,7 +1,8 @@
 var startingX = x
 var startingY = y
 
-if !app.newRoom {
+if waitTimer == -1 {
+	if !app.newRoom {
 	if alive {
 		switch(state)
 		{
@@ -188,5 +189,8 @@ if !app.newRoom {
 		}
 	}
 }
+}
+
+else waitTimer--
 
 depth = -y

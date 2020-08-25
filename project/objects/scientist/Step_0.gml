@@ -22,6 +22,7 @@ if shields {
 } else if audio_is_playing(snd_shield1) audio_stop_sound(snd_shield1)
 
 var cameraDistance = 280
+var enemyWaitTime = 60
 
 batteries = 0
 with battery {
@@ -111,12 +112,16 @@ if batteries == 2 and stage == 5 and cameraDelay == -1 {
 	//	Spawn enemies
 	var Enemy = instance_create_layer(350, 142, "Instances", enemy)
 	Enemy.zone = zone1
+	Enemy.waitTimer = enemyWaitTime
 	var Enemy = instance_create_layer(350, 150, "Instances", enemy)
 	Enemy.zone = zone1
+	Enemy.waitTimer = enemyWaitTime
 	var Enemy = instance_create_layer(350, 132, "Instances", enemy)
 	Enemy.zone = zone1
+	Enemy.waitTimer = enemyWaitTime
 	var Enemy = instance_create_layer(350, 122, "Instances", enemy)
 	Enemy.zone = zone1
+	Enemy.waitTimer = enemyWaitTime
 }
 	
 if stage == 6 and !audio_is_playing(snd_cackle1) sprite_index = s_scientist_idle
@@ -194,14 +199,18 @@ if batteries == 1 and stage == 11 and cameraDelay == -1 {
 	sprite_index = s_scientist_laugh
 	
 	//	Spawn enemies
-	var Enemy = instance_create_layer(1057, 101, "Instances", enemy)
+	var Enemy = instance_create_layer(1057, 142, "Instances", enemy)
 	Enemy.zone = zone2
-	var Enemy = instance_create_layer(1057, 111, "Instances", enemy)
+	Enemy.waitTimer = enemyWaitTime
+	var Enemy = instance_create_layer(1057, 135, "Instances", enemy)
 	Enemy.zone = zone2
-	var Enemy = instance_create_layer(1057, 121, "Instances", enemy)
+	Enemy.waitTimer = enemyWaitTime
+	var Enemy = instance_create_layer(1057, 120, "Instances", enemy)
 	Enemy.zone = zone2
-	var Enemy = instance_create_layer(1057, 91, "Instances", enemy)
+	Enemy.waitTimer = enemyWaitTime
+	var Enemy = instance_create_layer(1057, 108, "Instances", enemy)
 	Enemy.zone = zone2	
+	Enemy.waitTimer = enemyWaitTime
 }
 	
 if stage == 12 and !audio_is_playing(snd_cackle2) sprite_index = s_scientist_idle
