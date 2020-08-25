@@ -1,3 +1,7 @@
+if stage > 0 and !audio_is_playing(snd_wind) {
+	sound.playSound(snd_wind)	
+}
+
 if timer > 0 timer--
 else {
 	stage++
