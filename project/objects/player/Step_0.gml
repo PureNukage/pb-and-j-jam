@@ -72,9 +72,11 @@ if alive {
 	if input.keyReload reloading = true
 	if reloading reload()
 
-	if input.keyPlaceSpawn and room != Room4 {
-		placeSpawn(x,y)
-		sound.playSound(snd_squish)
+	if input.keyPlaceSpawn {
+		if (room != Room4) or (room == Room4 and !scientist.blowingUp) {
+			placeSpawn(x,y)
+			sound.playSound(snd_squish)
+		}
 	}
 	
 	if hand.ID == -1 and !instance_position(mouse_x,mouse_y,all) {
