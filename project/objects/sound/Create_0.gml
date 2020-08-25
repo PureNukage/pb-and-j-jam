@@ -1,5 +1,5 @@
-volume = 1
-music_volume = 0.5
+volume = 5
+music_volume = 0.2
 
 function playSound(index) {
 	audio_play_sound(index, 0, false)
