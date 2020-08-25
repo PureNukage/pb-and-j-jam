@@ -258,7 +258,7 @@ else if batteries == 0 and stage == 15 {
 		room3Door.open()
 		layer_set_visible(room3ID, false)
 		
-		blowingUpEndGame = 420
+		blowingUpEndGame = 600
 	}
 	
 	if blowingUpEndGame > 0 {

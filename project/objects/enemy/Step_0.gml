@@ -71,7 +71,7 @@ if !app.newRoom {
 						
 							if aggro {
 								state = state.aiming
-								pause = 45
+								pause = 15
 							}
 							else state = state.idle
 						}
@@ -114,7 +114,7 @@ if !app.newRoom {
 						//	Done aiming, lets shoot
 						if pause == 0 {
 							debug.log("I am shooting!")
-							pause = 60
+							pause = 30
 							state = state.shoot	
 						
 							//	Shoot

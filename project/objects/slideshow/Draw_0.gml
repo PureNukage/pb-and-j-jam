@@ -1,7 +1,3 @@
-if stage > 0 and !audio_is_playing(snd_wind) {
-	sound.playSound(snd_wind)	
-}
-
 if timer > 0 timer--
 else {
 	stage++
@@ -18,7 +14,7 @@ if stage < array_length(slides) {
 	
 	draw_set_color(c_white)
 	draw_set_font(fnt_slides)
-	draw_text(179, 248, strings[stage])
+	draw_text_ext(179, 248, strings[stage],15,280)
 }
 
 if input.mouseLeftPress {

@@ -20,6 +20,7 @@ if point_in_rectangle(mouse_gui_x,mouse_gui_y,249+buttonPlayX, 164, 249+buttonPl
 	if input.mouseLeftPress {
 		room_goto(rm_slideshow)
 		app.newRoom = true
+		sound.playSound(snd_wind)
 	}
 } else {
 	buttonPlayX = 0	
